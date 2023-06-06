@@ -46,3 +46,29 @@ int delete_up (t_node **head) {
 	free(tmp);
 	return value;
 }
+
+void insert_down(t_node **head, int value) {
+	if (!*head) {
+		insert_up(head, value);
+		return;
+	}
+
+	t_node *new_node;
+	t_node *last_node;
+
+	new_node = malloc(sizeof(t_node));
+	if (!new_node) {
+		printf("Error: malloc failed\n");
+		return;
+	}
+	new_node->value = value;
+	new_node->next = NULL;
+	last_node = *head;
+	while (last_node->next)
+		last_node = last_node->next;
+	last_node->next = new_node;
+	new_node->prev = last_node;
+}
+	
+	
+	
