@@ -70,5 +70,29 @@ void insert_down(t_node **head, int value) {
 	new_node->prev = last_node;
 }
 	
+int delete_down(t_node **head) {
+	if (!*head) {
+		printf("Error: empty stack\n");
+		return -1;
+	}
+	if (!(*head)->next) {
+		return delete_up(head);
+	}
+	t_node *tmp;
+	t_node *last_node;
+	int value;
 	
+	last_node = *head;
+	while (last_node->next)
+		last_node = last_node->next;
+	tmp = last_node;
+	value = tmp->value;
+	last_node = tmp->prev;
+	if (last_node)
+		last_node->next = NULL;
+	else
+		*head = NULL;
+	free(tmp);
+	return value;
+}	
 	
