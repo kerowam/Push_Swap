@@ -13,6 +13,11 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdarg.h>
 
 typedef struct s_node
 {
@@ -20,5 +25,7 @@ typedef struct s_node
 	struct s_node *next;
 	struct s_node *prev;
 } t_node;
+
+void insert_up(t_node **head, int value);
 
 #endif
