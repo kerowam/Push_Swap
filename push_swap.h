@@ -27,5 +27,6 @@ typedef struct s_node
 } t_node;
 
 void insert_up(t_node **head, int value);
+int delete_up(t_node **head);
 
 #endif

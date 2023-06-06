@@ -15,6 +15,7 @@
 
 void insert_up(t_node **head, int value) {
 	t_node *new_node;
+	
 	new_node = malloc(sizeof(t_node));
 	if (!new_node) {
 		printf("Error: malloc failed\n");
@@ -26,4 +27,22 @@ void insert_up(t_node **head, int value) {
 	if (*head)
 		(*head)->prev = new_node;
 	*head = new_node;
+}
+
+int delete_up (t_node **head) {
+	if (!*head) {
+		printf("Error: empty stack\n");
+		return -1;
+	}
+	
+	t_node *tmp;
+	int value;
+	
+	tmp = *head;
+	value = tmp->value;
+	*head = tmp->next;
+	if (*head)
+		(*head)->prev = NULL;
+	free(tmp);
+	return value;
 }
