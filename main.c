@@ -16,18 +16,34 @@
 int	main(int argc, char **argv) {
 	t_node	*stack_a;
 	t_node	*stack_b;
+	char		**numbers;
+	size_t	size;
 
+	argv[0] = "push_swap";
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc < 2) {
 		printf("Error: no arguments\n");
 		return 0;
+	} else if (argc == 2) {
+		numbers = ft_split(argv[1], ' ');
+		int count = 0;
+		while (numbers[count])
+		{
+			insert_up(&stack_a, ft_atoi(numbers[count]));
+			count++;
+		}
+		size = count;
+	} else if (argc > 2) {
+		int arg = 1;
+		size = argc - 1;
+		while (arg < argc)
+		{
+			insert_up(&stack_a, ft_atoi(argv[arg]));
+			arg++;
+		}
 	}
-	int arg = 1;
-	while (arg < argc) {
-		insert_up(&stack_a, ft_atoi(argv[arg]));
-		arg++;
-	}
+	
 	
 
 	return 0;
