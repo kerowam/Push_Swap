@@ -16,6 +16,7 @@ CLEAN = rm -f
 PUSH_SWAP_SRC = push_swap_operations.c \
 								push_swap_utils.c \
 								main.c \
+								sorts.c
 
 LIBFT_SRC = libft/ft_isalpha.c \
 						libft/ft_isdigit.c \
