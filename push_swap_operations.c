@@ -41,3 +41,19 @@ void ss(t_node **stack_a, t_node **stack_b)
 	sa(stack_a);
 	sb(stack_b);
 }
+
+void pa(t_node **stack_a, t_node **stack_b)
+{
+	if (!*stack_b)
+		return;
+
+	insert_up(stack_a, delete_up(stack_b));
+}
+
+void pb(t_node **stack_a, t_node **stack_b)
+{
+	if (!*stack_a)
+		return;
+
+	insert_up(stack_b, delete_up(stack_a));
+}
