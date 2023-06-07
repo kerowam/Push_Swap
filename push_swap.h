@@ -30,5 +30,8 @@ void insert_up(t_node **head, int value);
 int delete_up(t_node **head);
 void insert_down(t_node **head, int value);
 int delete_down(t_node **head);
+void sa(t_node **stack_a);
+void sb(t_node **stack_b);
+void ss(t_node **stack_a, t_node **stack_b);
 
 #endif
