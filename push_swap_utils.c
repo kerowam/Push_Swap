@@ -13,7 +13,7 @@
 #include "push_swap.h"
 
 
-void insert_up(t_node **head, int value) {
+void	insert_up(t_node **head, int value) {
 	t_node *new_node;
 	
 	new_node = malloc(sizeof(t_node));
@@ -29,7 +29,7 @@ void insert_up(t_node **head, int value) {
 	*head = new_node;
 }
 
-int delete_up (t_node **head) {
+int	delete_up (t_node **head) {
 	if (!*head) {
 		printf("Error: empty stack\n");
 		return -1;
@@ -47,7 +47,7 @@ int delete_up (t_node **head) {
 	return value;
 }
 
-void insert_down(t_node **head, int value) {
+void	insert_down(t_node **head, int value) {
 	if (!*head) {
 		insert_up(head, value);
 		return;
@@ -70,7 +70,7 @@ void insert_down(t_node **head, int value) {
 	new_node->prev = last_node;
 }
 	
-int delete_down(t_node **head) {
+int	delete_down(t_node **head) {
 	if (!*head) {
 		printf("Error: empty stack\n");
 		return -1;

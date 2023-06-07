@@ -15,7 +15,7 @@ CFLAGS = -Wall -Wextra -Werror
 CLEAN = rm -f
 PUSH_SWAP_SRC = push_swap_operations.c \
 								push_swap_utils.c \
-								push_swap.c \
+								main.c \
 
 LIBFT_SRC = libft/ft_isalpha.c \
 						libft/ft_isdigit.c \

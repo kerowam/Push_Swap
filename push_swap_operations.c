@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void sa(t_node **stack_a)
+void	sa(t_node **stack_a)
 {
 	if (!*stack_a || !(*stack_a)->next)
 		return;
@@ -24,7 +24,7 @@ void sa(t_node **stack_a)
 	(*stack_a)->next->value = tmp;
 }
 
-void sb(t_node **stack_b)
+void	sb(t_node **stack_b)
 {
 	if (!*stack_b || !(*stack_b)->next)
 		return;
@@ -36,13 +36,13 @@ void sb(t_node **stack_b)
 	(*stack_b)->next->value = tmp;
 }
 
-void ss(t_node **stack_a, t_node **stack_b)
+void	ss(t_node **stack_a, t_node **stack_b)
 {
 	sa(stack_a);
 	sb(stack_b);
 }
 
-void pa(t_node **stack_a, t_node **stack_b)
+void	pa(t_node **stack_a, t_node **stack_b)
 {
 	if (!*stack_b)
 		return;
@@ -50,7 +50,7 @@ void pa(t_node **stack_a, t_node **stack_b)
 	insert_up(stack_a, delete_up(stack_b));
 }
 
-void pb(t_node **stack_a, t_node **stack_b)
+void	pb(t_node **stack_a, t_node **stack_b)
 {
 	if (!*stack_a)
 		return;
@@ -58,7 +58,7 @@ void pb(t_node **stack_a, t_node **stack_b)
 	insert_up(stack_b, delete_up(stack_a));
 }
 
-void ra(t_node **stack_a)
+void	ra(t_node **stack_a)
 {
 	if (!*stack_a || !(*stack_a)->next)
 		return;
@@ -66,7 +66,7 @@ void ra(t_node **stack_a)
 	insert_down(stack_a, delete_up(stack_a));
 }
 
-void rb(t_node **stack_b)
+void	rb(t_node **stack_b)
 {
 	if (!*stack_b || !(*stack_b)->next)
 		return;
@@ -74,13 +74,13 @@ void rb(t_node **stack_b)
 	insert_down(stack_b, delete_up(stack_b));
 }
 
-void rr(t_node **stack_a, t_node **stack_b)
+void	rr(t_node **stack_a, t_node **stack_b)
 {
 	ra(stack_a);
 	rb(stack_b);
 }
 
-void rra(t_node **stack_a)
+void	rra(t_node **stack_a)
 {
 	if (!*stack_a || !(*stack_a)->next)
 		return;
@@ -88,7 +88,7 @@ void rra(t_node **stack_a)
 	insert_up(stack_a, delete_down(stack_a));
 }
 
-void rrb(t_node **stack_b)
+void	rrb(t_node **stack_b)
 {
 	if (!*stack_b || !(*stack_b)->next)
 		return;
@@ -96,7 +96,7 @@ void rrb(t_node **stack_b)
 	insert_up(stack_b, delete_down(stack_b));
 }
 
-void rrr(t_node **stack_a, t_node **stack_b)
+void	rrr(t_node **stack_a, t_node **stack_b)
 {
 	rra(stack_a);
 	rrb(stack_b);
