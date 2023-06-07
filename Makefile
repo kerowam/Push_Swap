@@ -75,12 +75,12 @@ all: push_swap
 push_swap: $(OBJT)
 	$(CC) $(CFLAGS) -o $@ $^
 
-libft: 
+libft: $(LIBFT_SRC)
 	$(CC) $(CFLAGS) -c $(LIBFT_SRC)
-	ar rcs libft.a $(LIBFT_OBJT)
+	ar rcs libft.a $(OBJT)
 
 clean:
-	$(CLEAN) $(OBJT) $(LIBFT_OBJT)
+	$(CLEAN) $(OBJT) 
 
 fclean: clean
 	$(CLEAN) push_swap libft.a
