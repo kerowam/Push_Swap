@@ -79,3 +79,25 @@ void rr(t_node **stack_a, t_node **stack_b)
 	ra(stack_a);
 	rb(stack_b);
 }
+
+void rra(t_node **stack_a)
+{
+	if (!*stack_a || !(*stack_a)->next)
+		return;
+
+	insert_up(stack_a, delete_down(stack_a));
+}
+
+void rrb(t_node **stack_b)
+{
+	if (!*stack_b || !(*stack_b)->next)
+		return;
+
+	insert_up(stack_b, delete_down(stack_b));
+}
+
+void rrr(t_node **stack_a, t_node **stack_b)
+{
+	rra(stack_a);
+	rrb(stack_b);
+}
