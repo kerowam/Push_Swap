@@ -10,3 +10,30 @@
 #                                                                              #
 # **************************************************************************** #
 
+NAME = push_swap.a
+CFLAGS = -Wall -Wextra -Werror
+CLEAN = rm -f
+SRC = push_swap_operations.c /
+			push_swap_utils.c /
+			push_swap.c /
+
+
+CC = gcc -c
+OBJT = $(SRC:.c=.o)
+
+
+all: $(NAME)
+
+$(NAME):
+	$(CC) $(CFLAGS) $(SRC)
+	ar rcs $(NAME) $(OBJT)
+
+clean:
+	$(CLEAN) $(OBJT) 
+
+fclean: clean
+	$(CLEAN) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re 
