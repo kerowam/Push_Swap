@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-void create_
 
 void	insert_up(t_node **head, int value) {
 	t_node *new_node;
