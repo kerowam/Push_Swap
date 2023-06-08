@@ -85,6 +85,6 @@ void	quick_sort_a(t_node **stack_a, t_node **stack_b, int size)
 			}
 			stack_a = &(*stack_a)->next;
 		}
-		quick_sort_a(stack_a, stack_b, pivot_index);
+		//quick_sort_a(stack_a, stack_b, pivot_index); ???????
 	}
 }

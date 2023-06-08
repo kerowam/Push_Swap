@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+void create_
 
 void	insert_up(t_node **head, int value) {
 	t_node *new_node;
@@ -21,12 +22,19 @@ void	insert_up(t_node **head, int value) {
 		printf("Error: malloc failed\n");
 		return;
 	}
-	new_node->value = value;
-	new_node->next = *head;
-	new_node->prev = NULL;
-	if (*head)
+	if (!*head) {
+		new_node->value = value;
+		new_node->next = NULL;
+		new_node->prev = NULL;
+		*head = new_node;
+		return;
+	} else {
+		new_node->value = value;
+		new_node->next = *head;
+		new_node->prev = NULL;
 		(*head)->prev = new_node;
-	*head = new_node;
+		*head = new_node;
+	}
 }
 
 int	delete_up (t_node **head) {
@@ -47,7 +55,7 @@ int	delete_up (t_node **head) {
 	return value;
 }
 
-void	insert_down(t_node **head, int value) {
+void	insert_down(t_node **last, int value) {
 	if (!*head) {
 		insert_up(head, value);
 		return;
@@ -63,14 +71,14 @@ void	insert_down(t_node **head, int value) {
 	}
 	new_node->value = value;
 	new_node->next = NULL;
-	last_node = *head;
+	last_node = *last;
 	while (last_node->next)
 		last_node = last_node->next;
 	last_node->next = new_node;
 	new_node->prev = last_node;
 }
 	
-int	delete_down(t_node **head) {
+int	delete_down(t_node **last) {
 	if (!*head) {
 		printf("Error: empty stack\n");
 		return -1;
@@ -82,7 +90,7 @@ int	delete_down(t_node **head) {
 	t_node *last_node;
 	int value;
 	
-	last_node = *head;
+	last_node = *last;
 	while (last_node->next)
 		last_node = last_node->next;
 	tmp = last_node;
@@ -91,7 +99,7 @@ int	delete_down(t_node **head) {
 	if (last_node)
 		last_node->next = NULL;
 	else
-		*head = NULL;
+		*last = NULL;
 	free(tmp);
 	return value;
 }	
