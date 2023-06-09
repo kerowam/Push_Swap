@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-t_node	*create_stack(int argc, char **argv)
+static t_node	*create_stack(int argc, char **argv)
 {
 	t_node *stack;
 	int i;
@@ -49,7 +49,10 @@ t_node	*init_stack(int argc, char **argv)
 	check_args(argc, argv);
 	stack = create_stack(argc, argv);
 	check_duplicates(stack);
-	
+	check_min_number(stack);
+	check_is_sorted(stack);
+	check_is_reverse_sorted(stack);
+
 	return (stack);
 }
 
