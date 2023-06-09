@@ -21,10 +21,12 @@ SRC = 	push_swap_operations.c \
 				main.c \
 				sorts.c \
 				init.c \
-				check.c \
+				check_args.c \
 				utils.c \
 				reverse_rotate_operations.c \
-				rotate_operations.c
+				rotate_operations.c \
+				list_utils.c \
+				check_sort.c
 
 CC = gcc
 
