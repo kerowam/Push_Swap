@@ -35,7 +35,7 @@ void	insert_up(t_node **head, int value) {
 	}
 }
 
-int	delete_up (t_node **head) {
+int	delete_up(t_node **head) {
 	if (!*head) {
 		printf("Error: empty stack\n");
 		return -1;
