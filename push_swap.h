@@ -23,6 +23,12 @@
 typedef struct s_node
 {
 	int value;
+	int position;
+	int index;
+	int target_position;
+	int cost_a;
+	int cost_b;
+	int total_cost;
 	struct s_node *next;
 	struct s_node *prev;
 } t_node;
