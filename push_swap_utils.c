@@ -102,4 +102,9 @@ int	delete_down(t_node **last) {
 	free(tmp);
 	return value;
 }	
+
+void	put_error(void) {
+	ft_putstr_fd("Error\n", 2);
+	exit(EXIT_FAILURE);
+}
 	

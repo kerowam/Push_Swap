@@ -18,6 +18,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdarg.h>
+#include <limits.h>
 
 typedef struct s_node
 {
@@ -41,5 +42,6 @@ void	rr(t_node **stack_a, t_node **stack_b);
 void	rra(t_node **stack_a);
 void	rrb(t_node **stack_b);
 void	rrr(t_node **stack_a, t_node **stack_b);
+void	put_error(void);
 
 #endif
