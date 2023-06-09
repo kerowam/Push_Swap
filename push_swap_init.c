@@ -40,7 +40,7 @@ t_node	*init_stack(int argc, char **argv)
 	return (stack);
 }
 
-void check_numbers(int argc, char **argv)
+void	check_numbers(int argc, char **argv)
 {
 	int i;
 	int j;
@@ -61,7 +61,7 @@ void check_numbers(int argc, char **argv)
 	}
 }
 
-void check_duplicates(t_node *stack) {
+void	check_duplicates(t_node *stack) {
 	t_node *tmp;
 	t_node *tmp2;
 
@@ -80,7 +80,7 @@ void check_duplicates(t_node *stack) {
 }
 
 
-void check_args(int argc, char **argv)
+void	check_args(int argc, char **argv)
 {
 	if (argc < 2)
 		put_error();
@@ -89,15 +89,18 @@ void check_args(int argc, char **argv)
 	}
 }
 
-void	print_stack(t_node *stack)
+int	check_min_number(t_node *stack)
 {
-	t_node	*tmp;
+	t_node *tmp;
+	int min;
 
 	tmp = stack;
-	printf("Stack:\n");
+	min = tmp->value;
 	while (tmp)
 	{
-		printf("%d\n", tmp->value);
+		if (tmp->value < min)
+			min = tmp->value;
 		tmp = tmp->next;
 	}
+	return (min);
 }

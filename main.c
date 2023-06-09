@@ -17,12 +17,10 @@ int	main(int argc, char **argv) {
 	t_node	*stack_a;
 	t_node	*stack_b;
 	
-
-	argv[0] = "push_swap";
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc < 2) {
-		printf("Error: no arguments\n");
+		put_error();
 		return 0;
 	}
 	stack_a = init_stack(argc, argv);

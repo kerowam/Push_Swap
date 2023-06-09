@@ -107,4 +107,16 @@ void	put_error(void) {
 	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
 }
-	
+
+void	print_stack(t_node *stack)
+{
+	t_node *tmp;
+
+	tmp = stack;
+	printf("Stack:\n");
+	while (tmp)
+	{
+		printf("%d\n", tmp->value);
+		tmp = tmp->next;
+	}
+}
