@@ -73,7 +73,8 @@ static void	get_index_sorted(t_node *stack)
 			i++;
 			while(stack)
 				stack = stack->prev;
+		} else {
+			stack = stack->next;
 		}
-		stack = stack->next;
 	}
 }
