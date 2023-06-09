@@ -62,5 +62,4 @@ int			len_stack(t_node *stack);
 int 		*get_array(t_node *stack, int size);
 int 		*sort_array(int *array, int size);
 
-
 #endif
