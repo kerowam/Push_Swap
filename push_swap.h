@@ -55,11 +55,12 @@ t_node	*init_stack(int argc, char **argv);
 void 		check_numbers(int argc, char **argv);
 void 		check_duplicates(t_node *stack);
 void 		check_args(int argc, char **argv);
-int 		check_min_number(t_node *stack);
+int 		get_min_value(t_node *stack);
 int 		check_is_sorted(t_node *stack);
 int 		check_is_reverse_sorted(t_node *stack);
 int			len_stack(t_node *stack);
 int 		*get_array(t_node *stack, int size);
 int 		*sort_array(int *array, int size);
+int 		get_position_min_value(t_node *stack);
 
 #endif

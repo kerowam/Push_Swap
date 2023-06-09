@@ -61,19 +61,3 @@ void check_args(int argc, char **argv)
 		check_numbers(argc, argv);
 	}
 }
-
-int check_min_number(t_node *stack)
-{
-	t_node *tmp;
-	int min;
-
-	tmp = stack;
-	min = tmp->value;
-	while (tmp)
-	{
-		if (tmp->value < min)
-			min = tmp->value;
-		tmp = tmp->next;
-	}
-	return (min);
-}

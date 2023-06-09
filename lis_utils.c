@@ -54,3 +54,34 @@ int *sort_array(int *array, int size)
 	}
 	return (array);
 }
+
+int get_min_value(t_node *stack)
+{
+	t_node *tmp;
+	int min;
+
+	tmp = stack;
+	min = tmp->value;
+	while (tmp)
+	{
+		if (tmp->value < min)
+			min = tmp->value;
+		tmp = tmp->next;
+	}
+	return (min);
+}
+
+int get_position_min_value(t_node *stack)
+{
+	int min_value;
+
+	min_value = get_min_number(stack);
+	position = 1;
+	while (stack)
+	{
+		if (stack->value == min_value)
+			return (stack->position);
+		stack = stack->next;
+	}
+	return (0);
+}
