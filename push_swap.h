@@ -24,7 +24,7 @@ typedef struct s_node
 {
 	int value;
 	int position;
-	int index;
+	int index_sorted;
 	int target_position;
 	int cost_a;
 	int cost_b;

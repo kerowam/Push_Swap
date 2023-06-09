@@ -40,7 +40,6 @@ static t_node	*create_stack(int argc, char **argv)
 	return (stack);
 }
 
-
 t_node	*init_stack(int argc, char **argv)
 {
 	t_node	*stack;
@@ -52,8 +51,29 @@ t_node	*init_stack(int argc, char **argv)
 	check_min_number(stack);
 	check_is_sorted(stack);
 	check_is_reverse_sorted(stack);
+	get_index_sorted(stack);
 
 	return (stack);
 }
 
+static void	get_index_sorted(t_node *stack)
+{
+	int size;
+	int *array;
+	int i;
 
+	i = 0;
+	size = len_stack(stack);
+	array = get_array(stack, size);
+	sort_array(array, size);
+	while (i < size)
+	{
+		if (array[i] == stack->value) {
+			stack->index_sorted = i + 1;
+			i++;
+			while(stack)
+				stack = stack->prev;
+		}
+		stack = stack->next;
+	}
+}
