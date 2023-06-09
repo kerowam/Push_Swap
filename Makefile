@@ -16,11 +16,15 @@ CFLAGS = -Wall -Wextra -Werror
 
 CLEAN = rm -f
 
-SRC = push_swap_operations.c \
-								push_swap_utils.c \
-								main.c \
-								sorts.c \
-								push_swap_init.c
+SRC = 	push_swap_operations.c \
+				operations_utils.c \
+				main.c \
+				sorts.c \
+				init.c \
+				check.c \
+				utils.c \
+				reverse_rotate_operations.c \
+				rotate_operations.c
 
 CC = gcc
 

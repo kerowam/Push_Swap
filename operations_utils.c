@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-
 void	insert_up(t_node **head, int value) {
 	t_node *new_node;
 	
@@ -102,21 +101,3 @@ int	delete_down(t_node **last) {
 	free(tmp);
 	return value;
 }	
-
-void	put_error(void) {
-	ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
-}
-
-void	print_stack(t_node *stack)
-{
-	t_node *tmp;
-
-	tmp = stack;
-	printf("Stack:\n");
-	while (tmp)
-	{
-		printf("%d\n", tmp->value);
-		tmp = tmp->next;
-	}
-}
