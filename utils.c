@@ -43,3 +43,16 @@ int	len_stack(t_node *stack)
 	}
 	return (i);
 }
+
+void	print_array(int *array, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < len)
+	{
+		printf("%d\n", array[i]);
+		i++;
+	}
+	return (0);
+}

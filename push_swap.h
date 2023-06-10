@@ -62,6 +62,9 @@ int			len_stack(t_node *stack);
 int 		*get_array(t_node *stack, int size);
 int 		*sort_array(int *array, int size);
 int 		get_position_min_value(t_node *stack);
-int 		*init_lenght_array(int size);
+int 		*init_length_array(int size);
+int			*get_length_array(t_node *stack, int size);
+int 		*get_subsequence(t_node *stack, int *lenght_array, int size);
+void 		print_array(int *array, int size);
 
 #endif
