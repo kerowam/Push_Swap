@@ -86,7 +86,7 @@ int get_position_min_value(t_node *stack)
 	return (0);
 }
 
-int *init_lenght_array(int size)
+int *init_length_array(int size)
 {
 	int *length_array;
 	int i;
