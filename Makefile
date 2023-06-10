@@ -25,8 +25,9 @@ SRC = 	push_swap_operations.c \
 				utils.c \
 				reverse_rotate_operations.c \
 				rotate_operations.c \
-				list_utils.c \
-				check_sort.c
+				lis_utils.c \
+				check_sort.c \
+				lis.c
 
 CC = gcc
 

@@ -43,4 +43,3 @@ int	len_stack(t_node *stack)
 	}
 	return (i);
 }
-

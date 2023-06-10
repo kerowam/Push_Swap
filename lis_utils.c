@@ -85,3 +85,20 @@ int get_position_min_value(t_node *stack)
 	}
 	return (0);
 }
+
+int *init_lenght_array(int size)
+{
+	int *length_array;
+	int i;
+
+	i = 0;
+	length_array = malloc(sizeof(int) * size);
+	if (!length_array)
+		return (NULL);
+	while (i < size)
+	{
+		length_array[i] = 1;
+		i++;
+	}
+	return (length_array);
+}
