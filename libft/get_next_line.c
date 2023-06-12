@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 22:14:01 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/04/02 23:31:41 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/12 22:56:40 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char *ft_strjoin(char *s1, char *s2)
+static char *ft_strjoin_gnl(char *s1, char *s2)
 {
 	size_t i;
 	size_t j;
@@ -41,7 +41,7 @@ static char *ft_strjoin(char *s1, char *s2)
 	return (str);
 }
 
-static char *ft_strdup(char *s1)
+static char *ft_strdup_gnl(char *s1)
 {
 	char *ptr;
 	int i;
@@ -137,9 +137,9 @@ static char *ft_reader(int fd, char *stack)
 			return (free(stack), free(buffer), NULL);
 		buffer[reader] = '\0';
 		if (!stack)
-			stack = ft_strdup(buffer);
+			stack = ft_strdup_gnl(buffer);
 		else
-			stack = ft_strjoin(stack, buffer);
+			stack = ft_strjoin_gnl(stack, buffer);
 	}
 	free(buffer);
 	return (stack);

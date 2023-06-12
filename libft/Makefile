@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gfredes- <gfredes-@student.42malaga.com>   +#+  +:+       +#+         #
+#    By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 17:22:51 by gfredes-          #+#    #+#              #
-#    Updated: 2023/01/09 21:04:47 by gfredes-         ###   ########.fr        #
+#    Updated: 2023/06/12 22:57:23 by gfredes-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,6 @@ SRC = 	ft_isalpha.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
-		ft_printf.c \
 		get_next_line.c \
 
 SRCBONUS = ft_lstnew_bonus.c \

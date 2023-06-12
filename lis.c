@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lis.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfredes- <gfredes-@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 01:57:21 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/10 01:57:21 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/12 23:28:27 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	*get_length_array(t_node *stack, int size) {
 	return (length_array);
 }
 
-int *get_subsequence(t_node *stack, int *length_array, int size)
+int *get_subsequence(int *array, int *length_array, int size)
 {
 	int *subsequence;
 	int max_length;

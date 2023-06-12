@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   operations_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfredes- <gfredes-@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:29 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/06 23:20:29 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/12 23:04:04 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ int	delete_up(t_node **head) {
 }
 
 void	insert_down(t_node **last, int value) {
-	if (!*head) {
-		insert_up(head, value);
+	if (!*last) {
+		insert_up(last, value);
 		return;
 	}
 
@@ -77,12 +77,12 @@ void	insert_down(t_node **last, int value) {
 }
 	
 int	delete_down(t_node **last) {
-	if (!*head) {
+	if (!*last) {
 		printf("Error: empty stack\n");
 		return -1;
 	}
-	if (!(*head)->next) {
-		return delete_up(head);
+	if (!(*last)->next) {
+		return delete_up(last);
 	}
 	t_node *tmp;
 	t_node *last_node;

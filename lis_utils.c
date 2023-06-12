@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lis_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfredes- <gfredes-@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 21:21:46 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/09 21:21:46 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/12 23:26:25 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ int get_position_min_value(t_node *stack)
 {
 	int min_value;
 
-	min_value = get_min_number(stack);
-	position = 1;
+	min_value = get_min_value(stack);
+	stack->position = 1;
 	while (stack)
 	{
 		if (stack->value == min_value)

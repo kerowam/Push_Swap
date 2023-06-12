@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_init.c                                   :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfredes- <gfredes-@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 23:31:01 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/08 23:31:01 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/12 23:43:36 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,22 +40,6 @@ static t_node	*create_stack(int argc, char **argv)
 	return (stack);
 }
 
-t_node	*init_stack(int argc, char **argv)
-{
-	t_node	*stack;
-	
-	stack = NULL;
-	check_args(argc, argv);
-	stack = create_stack(argc, argv);
-	check_duplicates(stack);
-	check_min_number(stack);
-	check_is_sorted(stack);
-	check_is_reverse_sorted(stack);
-	get_index_sorted(stack);
-
-	return (stack);
-}
-
 static void	get_index_sorted(t_node *stack)
 {
 	int size;
@@ -77,4 +61,26 @@ static void	get_index_sorted(t_node *stack)
 			stack = stack->next;
 		}
 	}
+}
+
+t_node	*init_stack(int argc, char **argv)
+{
+	t_node	*stack;
+	
+	stack = NULL;
+	check_args(argc, argv);
+	printf("check1\n");
+	stack = create_stack(argc, argv);
+	printf("check2\n");
+	check_duplicates(stack);
+	printf("check3\n");
+	get_min_value(stack);
+	printf("check4\n");
+	check_is_sorted(stack);
+	printf("check5\n");
+	check_is_reverse_sorted(stack);
+	printf("check6\n");
+	get_index_sorted(stack);
+
+	return (stack);
 }

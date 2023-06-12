@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfredes- <gfredes-@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 20:50:07 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/09 20:50:07 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/12 23:25:59 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ void	print_array(int *array, int size)
 	int	i;
 
 	i = 0;
-	while (i < len)
+	while (i < size)
 	{
 		printf("%d\n", array[i]);
 		i++;
 	}
-	return (0);
+	return;
 }

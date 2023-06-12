@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfredes- <gfredes-@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:21 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/06 23:20:21 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/12 23:28:35 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <limits.h>
+#include "./libft/libft.h"
 
 typedef struct s_node
 {
@@ -50,8 +51,8 @@ void		rrb(t_node **stack_b);
 void		rrr(t_node **stack_a, t_node **stack_b);
 void		put_error(void);
 void 		print_stack(t_node *stack);
-void 		sort_three(t_node **stack_a);
-t_node	*init_stack(int argc, char **argv);
+void 		sort_three(t_node **stack_a, size_t size);
+t_node		*init_stack(int argc, char **argv);
 void 		check_numbers(int argc, char **argv);
 void 		check_duplicates(t_node *stack);
 void 		check_args(int argc, char **argv);
@@ -64,7 +65,7 @@ int 		*sort_array(int *array, int size);
 int 		get_position_min_value(t_node *stack);
 int 		*init_length_array(int size);
 int			*get_length_array(t_node *stack, int size);
-int 		*get_subsequence(t_node *stack, int *lenght_array, int size);
+int 		*get_subsequence(int *array, int *lenght_array, int size);
 void 		print_array(int *array, int size);
 
 #endif
