@@ -35,7 +35,7 @@ int	main(int argc, char **argv) {
 	array = get_array(stack_a, size);
 	length_array = get_length_array(stack_a, size);
 	print_array(length_array, size);
-	subsequence = get_subsequence(array, length_array, size);
+	subsequence = get_subsequence(stack_a, size);
 	print_array(subsequence, size);
 
 	return (0);
