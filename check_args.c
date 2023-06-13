@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 20:48:26 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/12 23:50:01 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/13 16:38:27 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void check_numbers(int argc, char **argv)
 	while (i < argc)
 	{
 		j = 0;
-		printf("argv[%d]: %s\n", i, argv[i]);
 		while (argv[i][j])
 		{
-			if (!ft_isdigit(argv[i][j]) || (argv[i][j] == '-' && !ft_isdigit(argv[i][j + 1])) || (argv[i][j] == '+' && !ft_isdigit(argv[i][j + 1])) || argv[i][j] != ' ')
+			printf("argv[%d][%d]: %s\n", i, j, argv[i]);
+			if ((argv[i][j] == '-' && !(ft_isdigit(argv[i][j + 1]))) || (argv[i][j] == '+' && !(ft_isdigit(argv[i][j + 1]))) || (argv[i][j] != ' ' && !(ft_isdigit(argv[i][j]))))
 				{
 					printf("Error1: %c\n", argv[i][j]);
 					put_error();

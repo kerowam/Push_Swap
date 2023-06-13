@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 20:50:07 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/12 23:25:59 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/13 17:27:13 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ void	print_array(int *array, int size)
 		printf("%d\n", array[i]);
 		i++;
 	}
+	printf("\n");
 	return;
 }

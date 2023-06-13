@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 21:21:46 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/12 23:26:25 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/13 18:09:31 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int *get_array(t_node *stack, int size)
 	while (stack)
 	{
 		array[i] = stack->value;
+		//printf("array[%d]: %d\n", i, array[i]);
 		stack = stack->next;
 		i++;
 	}
