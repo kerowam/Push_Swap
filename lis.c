@@ -51,7 +51,7 @@ int get_max_length_array_position(int *length_array, int size)
 		if (max_length < length_array[i])
 		{
 			max_length = length_array[i];
-			max_length_array_position = i;
+			max_length_array_position = i + 1;
 		}
 		i++;
 	}
