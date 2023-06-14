@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 01:57:21 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/13 18:26:09 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/14 18:09:16 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,34 +58,29 @@ int get_max_length_array_position(int *length_array, int size)
 	return (max_length_array_position);
 }
 
-int	*get_subsequence(int *array, int size)
+int *get_subsequence(t_node *stack, int size)
 {
-	int	*subsequence;
+	int *array;
 	int *length_array;
-	int	i;
-	int	j;
+	int *subsequence;
+	int i;
+	int j;
 
 	i = 1;
 	j = 0;
-	length_array = get_length_array(array, size);
-	subsequence = malloc(sizeof(int) * size + 1);
+	array = get_array(stack, size);
+	length_array = init_length_array(size);
+	subsequence = malloc(sizeof(int) * size);
 	if (!subsequence)
 		return (NULL);
 	while (i < size)
 	{
-		printf("check_sub1\n");
 		while (j < i)
 		{
-			printf("check_sub2\n");
-			printf("array[j]: %d\n", array[j]);
-			printf("array[i]: %d\n", array[i]);
-			printf("length_array[j]: %d\n", length_array[j]);
-			printf("length_array[i]: %d\n", length_array[i]);
 			if (array[j] < array[i] && length_array[j] + 1 > length_array[i])
 			{
-				printf("check_sub3\n");
+				length_array[i] = length_array[j] + 1;
 				subsequence[i] = j;
-				printf("subsequence[%d]: %d\n", i, subsequence[i]);
 			}
 			j++;
 		}

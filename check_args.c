@@ -6,16 +6,16 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 20:48:26 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/13 16:38:27 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/14 19:53:58 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void check_numbers(int argc, char **argv)
+void	check_numbers(int argc, char **argv)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
 	while (i < argc)
@@ -23,15 +23,17 @@ void check_numbers(int argc, char **argv)
 		j = 0;
 		while (argv[i][j])
 		{
-			printf("argv[%d][%d]: %s\n", i, j, argv[i]);
-			if ((argv[i][j] == '-' && !(ft_isdigit(argv[i][j + 1]))) || (argv[i][j] == '+' && !(ft_isdigit(argv[i][j + 1]))) || (argv[i][j] != ' ' && !(ft_isdigit(argv[i][j]))))
-				{
-					printf("Error1: %c\n", argv[i][j]);
-					put_error();
-				}
+			//printf("argv[%d][%d]: %s\n", i, j, argv[i]);
+			if ((argv[i][j] == '-' && !(ft_isdigit(argv[i][j + 1])))
+				|| (argv[i][j] == '+' && !(ft_isdigit(argv[i][j + 1])))
+				|| (argv[i][j] != ' ' && !(ft_isdigit(argv[i][j]))))
+			{
+				//printf("Error1: %c\n", argv[i][j]);
+				put_error();
+			}
 			else if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN) 
 			{
-				printf("Error2: %d\n", ft_atoi(argv[i]));
+				//printf("Error2: %d\n", ft_atoi(argv[i]));
 				put_error();
 			}
 			j++;
@@ -40,10 +42,10 @@ void check_numbers(int argc, char **argv)
 	}
 }
 
-void check_duplicates(t_node *stack)
+void	check_duplicates(t_node *stack)
 {
-	t_node *tmp;
-	t_node *tmp2;
+	t_node	*tmp;
+	t_node	*tmp2;
 
 	tmp = stack;
 	while (tmp)
@@ -59,13 +61,20 @@ void check_duplicates(t_node *stack)
 	}
 }
 
-void check_args(int argc, char **argv)
+void	check_args(int argc, char **argv)
 {
-	if (argc < 2) {
+	if (argc < 2)
+	{
 		put_error();
 	}
 	else
 	{
 		check_numbers(argc, argv);
 	}
+}
+
+void	check_int(long nb)
+{
+	if (nb > INT_MAX || nb < INT_MIN)
+		put_error();
 }

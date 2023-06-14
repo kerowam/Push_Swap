@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:33 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/13 18:06:24 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/14 18:17:13 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ int	main(int argc, char **argv) {
 		return (0);
 	}
 	stack_a = init_stack(argc, argv);
-	printf("check\n");
+	//printf("check\n");
 	size = len_stack(stack_a);
 	print_stack(stack_a);
 	array = get_array(stack_a, size);
 	length_array = get_length_array(stack_a, size);
 	print_array(length_array, size);
-	subsequence = get_subsequence(array, length_array, size);
+	subsequence = get_subsequence(stack_a, size);
 	print_array(subsequence, size);
 
 	return (0);
