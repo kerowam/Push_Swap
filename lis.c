@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 01:57:21 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/14 18:09:16 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/15 22:13:55 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	*get_length_array(t_node *stack, int size)
 	return (length_array);
 }
 
-int get_max_length_array_position(int *length_array, int size)
+int	get_max_length_array_position(int *length_array, int size)
 {
 	int	i;
 	int	max_length;

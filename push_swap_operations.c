@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_operations.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfredes- <gfredes-@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 02:27:15 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/07 02:27:15 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/15 22:49:46 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,32 @@
 
 void	sa(t_node **stack_a)
 {
-	if (!*stack_a || !(*stack_a)->next)
-		return;
+	int	tmp;
 
-	int tmp;
+	if (!*stack_a || !(*stack_a)->next)
+		return ;
+
 
 	tmp = (*stack_a)->value;
 	(*stack_a)->value = (*stack_a)->next->value;
 	(*stack_a)->next->value = tmp;
 	write(1, "sa\n", 3);
+	return ;
 }
 
 void	sb(t_node **stack_b)
 {
-	if (!*stack_b || !(*stack_b)->next)
-		return;
+	int	tmp;
 
-	int tmp;
+	if (!*stack_b || !(*stack_b)->next)
+		return ;
+
 
 	tmp = (*stack_b)->value;
 	(*stack_b)->value = (*stack_b)->next->value;
 	(*stack_b)->next->value = tmp;
 	write(1, "sb\n", 3);
+	return ;
 }
 
 void	ss(t_node **stack_a, t_node **stack_b)
@@ -43,15 +47,17 @@ void	ss(t_node **stack_a, t_node **stack_b)
 	sa(stack_a);
 	sb(stack_b);
 	write(1, "ss\n", 3);
+	return ;
 }
 
 void	pa(t_node **stack_a, t_node **stack_b)
 {
 	if (!*stack_b)
-		return;
+		return ;
 
 	insert_up(stack_a, delete_up(stack_b));
 	write(1, "pa\n", 3);
+	return ;
 }
 
 void	pb(t_node **stack_a, t_node **stack_b)

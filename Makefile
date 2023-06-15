@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gfredes- <gfredes-@student.42malaga.com>   +#+  +:+       +#+         #
+#    By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/06 23:21:44 by gfredes-          #+#    #+#              #
-#    Updated: 2023/06/06 23:21:44 by gfredes-         ###   ########.fr        #
+#    Updated: 2023/06/15 22:19:43 by gfredes-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRC = 	push_swap_operations.c \
 				rotate_operations.c \
 				lis_utils.c \
 				check_sort.c \
-				lis.c
+				lis.c \
+				moves.c
 
 CC = gcc
 

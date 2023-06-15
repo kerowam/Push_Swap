@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 20:50:07 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/14 19:54:29 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/15 23:58:22 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	put_error(void)
 	exit(EXIT_FAILURE);
 }
 
-void	print_stack(t_node *stack)
+void	print_stack_value(t_node *stack)
 {
 	t_node	*tmp;
 
@@ -26,21 +26,38 @@ void	print_stack(t_node *stack)
 	printf("Stack:\n");
 	while (tmp)
 	{
-		printf("%d\n", tmp->value);
+		printf("stack_value: %d\n", tmp->value);
+		printf("stack_position: %d\n", tmp->position);
+		tmp = tmp->next;
+	}
+}
+
+void	print_stack_position(t_node *stack)
+{
+	t_node	*tmp;
+
+	tmp = stack;
+	printf("Stack:\n");
+	while (tmp)
+	{
+		printf("stack_position: %d\n", tmp->position);
 		tmp = tmp->next;
 	}
 }
 
 int	len_stack(t_node *stack)
 {
-	int	i;
+	t_node	*tmp;
+	int		i;
 
+	tmp = stack;
 	i = 0;
-	while (stack)
+	while (tmp)
 	{
-		stack = stack->next;
+		tmp = tmp->next;
 		i++;
 	}
+	free(tmp);
 	return (i);
 }
 

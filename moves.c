@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfredes- <gfredes-@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 21:38:51 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/14 21:38:51 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/15 22:44:59 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,17 @@ void	move_min_value_up(t_node **stack, int position_min_value, int size)
 		while ((*stack)->position != position_min_value)
 			rra(stack);
 	}
+	return ;
 }
 
-void	first_moves(t_node **stack_a, t_node **stack_b, int max_length_array_position, int *subsequence, int size)
+void	first_moves(t_node **stack_a, t_node **stack_b, int max_length_array_position, int *subsequence)
 {
 	t_node *last;
 	int 		position_target;
 
 	while (*stack_a)
 	{
-		*stack_a = stack_a->next;
+		*stack_a = (*stack_a)->next;
 	}
 	last = *stack_a;
 	position_target = max_length_array_position;

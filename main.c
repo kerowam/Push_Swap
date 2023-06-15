@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:33 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/14 18:17:13 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/16 00:26:12 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int	main(int argc, char **argv) 
 {
-	t_node	**stack_a;
-	t_node	**stack_b;
+	t_node	*stack_a;
+	t_node	*stack_b;
 	int		size;
 	int 	*length_array;
 	int 	*subsequence;
@@ -31,21 +31,35 @@ int	main(int argc, char **argv)
 		put_error();
 		return (0);
 	}
+	printf("check0\n");
 	stack_a = init_stack(argc, argv);
-	//printf("check\n");
+	print_stack_value(stack_a);
+	print_stack_position(stack_a);
+	printf("check1\n");
 	size = len_stack(stack_a);
-	print_stack(stack_a);
-	position_min_value = get_position_min_value(stack_a, size);
-	move_min_value_up(**stack_a, position_min_value, size);
+	printf("size: %d\n", size);
+	printf("stack_a_position: %d\n", stack_a->position);
+	printf("check2\n");
+	position_min_value = get_position_min_value(stack_a);
+	printf("position_min_value: %d\n", position_min_value);
+	printf("check3\n");
+	move_min_value_up(&stack_a, position_min_value, size);
+	printf("check4\n");
 	array = get_array(stack_a, size);
 	length_array = get_length_array(stack_a, size);
+	printf("check5\n");
 	print_array(length_array, size);
-	max_length_array_position = get_max_length_array_position(length_array, size);
+	printf("check6\n");
+	max_length_array_position = get_max_length_array_position(length_array,
+			size);
+	printf("check7\n");
 	subsequence = get_subsequence(stack_a, size);
+	printf("check8\n");
 	print_array(subsequence, size);
-	first_moves(**stack_a, **stack_b, max_length_array_position, subsequence, size);
-	print_stack(stack_a);
-	print_stack(stack_b);
-
+	printf("check9\n");
+	first_moves(&stack_a, &stack_b, max_length_array_position, subsequence);
+	printf("check10\n");
+	print_stack_value(stack_a);
+	print_stack_value(stack_b);
 	return (0);
 }

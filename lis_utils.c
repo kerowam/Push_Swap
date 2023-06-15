@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 21:21:46 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/13 18:09:31 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/15 22:55:20 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ int *sort_array(int *array, int size)
 	return (array);
 }
 
-int get_min_value(t_node *stack)
+int	get_min_value(t_node *stack)
 {
-	t_node *tmp;
-	int min;
+	t_node	*tmp;
+	int		min;
 
 	tmp = stack;
 	min = tmp->value;
@@ -72,14 +72,15 @@ int get_min_value(t_node *stack)
 	return (min);
 }
 
-int get_position_min_value(t_node *stack)
+int	get_position_min_value(t_node *stack)
 {
-	int min_value;
+	int	min_value;
 
 	min_value = get_min_value(stack);
-	stack->position = 1;
+	printf("min_value: %d\n", min_value);
 	while (stack)
 	{
+		printf("stack->position: %d\n", stack->position);
 		if (stack->value == min_value)
 			return (stack->position);
 		stack = stack->next;
@@ -87,7 +88,7 @@ int get_position_min_value(t_node *stack)
 	return (0);
 }
 
-int *init_length_array(int size)
+int	*init_length_array(int size)
 {
 	int *length_array;
 	int i;

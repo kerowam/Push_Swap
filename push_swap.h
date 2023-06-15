@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:21 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/14 19:56:56 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/16 00:06:33 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_node
 	struct s_node	*prev;
 }	t_node;
 
-void		create_node(t_node **last, int value);
+void		create_node(t_node **last, int value, int i);
 void		insert_up(t_node **head, t_node *node);
 t_node		*delete_up(t_node **head);
 void		insert_down(t_node **last, t_node *node);
@@ -51,7 +51,7 @@ void		rra(t_node **stack_a);
 void		rrb(t_node **stack_b);
 void		rrr(t_node **stack_a, t_node **stack_b);
 void		put_error(void);
-void		print_stack(t_node *stack);
+void		print_stack_value(t_node *stack);
 void		sort_three(t_node **stack_a, size_t size);
 t_node		*init_stack(int argc, char **argv);
 void		check_numbers(int argc, char **argv);
@@ -66,11 +66,14 @@ int			*sort_array(int *array, int size);
 int			get_position_min_value(t_node *stack);
 int			*init_length_array(int size);
 int			*get_length_array(t_node *stack, int size);
+int			get_max_length_array_position(int *length_array, int size);
 int			*get_subsequence(t_node *stack, int size);
 void		print_array(int *array, int size);
 void		check_int(long nb);
 int			ft_atoi_long(const char *str);
-void 		move_min_value_up(t_node **stack, int position_min_value, int size);
-void 		first_moves(t_node **stack_a, t_node **stack_b, int max_length_array_position, int *subsequence, int size);
+void		move_min_value_up(t_node **stack, int position_min_value, int size);
+void		first_moves(t_node **stack_a, t_node **stack_b,
+				int max_length_array_position, int *subsequence);
+void		print_stack_position(t_node *stack);
 
 #endif
