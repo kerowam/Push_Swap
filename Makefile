@@ -12,7 +12,7 @@
 
 NAME = push_swap
 
-CFLAGS = -Wall -Wextra -Werror
+#CFLAGS = -Wall -Wextra -Werror
 
 CLEAN = rm -f
 
@@ -30,7 +30,7 @@ SRC = 	push_swap_operations.c \
 				lis.c \
 				moves.c
 
-CC = gcc
+CC = gcc -g
 
 OBJT = $(SRC:.c=.o)
 
@@ -42,7 +42,7 @@ $(LIBFT):
 	make -C ./libft
 
 $(NAME): $(LIBFT) $(OBJT)
-	$(CC) $(CFLAGS) $(SRC) $(LIBFT) -o $(NAME)
+	$(CC) $(SRC) $(LIBFT) -o $(NAME)
 
 
 clean:

@@ -37,6 +37,7 @@ int	main(int argc, char **argv)
 	print_stack_position(stack_a);
 	printf("check1\n");
 	size = len_stack(stack_a);
+	array = get_array(stack_a, size);
 	printf("size: %d\n", size);
 	printf("stack_a_position: %d\n", stack_a->position);
 	printf("check2\n");
@@ -45,7 +46,6 @@ int	main(int argc, char **argv)
 	printf("check3\n");
 	move_min_value_up(&stack_a, position_min_value, size);
 	printf("check4\n");
-	array = get_array(stack_a, size);
 	length_array = get_length_array(stack_a, size);
 	printf("check5\n");
 	print_array(length_array, size);
