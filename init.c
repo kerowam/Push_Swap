@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: usuario42 <usuario42@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 23:31:01 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/16 00:30:24 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/19 00:06:13 by usuario42        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ static t_node	*create_stack(int argc, char **argv)
 {
 	t_node	*stack;
 	int		i;
+	int		j;
 	char	**char_numbers;
 
 	i = 1;
@@ -81,13 +82,15 @@ static t_node	*create_stack(int argc, char **argv)
 	if (argc == 2)
 	{
 		char_numbers = ft_split(argv[1], ' ');
-		while (char_numbers[i])
+		j = 0;
+		while (char_numbers[j])
 		{	
 			printf("check_create_stack\n");
-			create_node(&stack, ft_atoi_long(char_numbers[i]), i);
+			create_node(&stack, ft_atoi_long(char_numbers[j]), i);
 			printf("creating_stack->value: %d\n", stack->value);
 			printf("creating_stack->position: %d\n", stack->position);
 			i++;
+			j++;
 		}
 	}
 	else if (argc > 2)
@@ -95,12 +98,16 @@ static t_node	*create_stack(int argc, char **argv)
 		while (i < argc)
 		{
 			create_node(&stack, ft_atoi_long(argv[i]), i);
+			if (stack->next)
+				stack = stack->next;
 			printf("creating_stack->value: %d\n", stack->value);
 			stack->position = i;
 			printf("creating_stack->position: %d\n", stack->position);
 			i++;
 		}
 	}
+	while (stack->prev != NULL)
+		stack = stack->prev;
 	return (stack);
 }
 
@@ -144,6 +151,7 @@ static void	get_index_sorted(t_node *stack)
 t_node	*init_stack(int argc, char **argv)
 {
 	t_node	*stack;
+	t_node	*tmp;
 
 	stack = NULL;
 	check_args(argc, argv);
@@ -163,5 +171,6 @@ t_node	*init_stack(int argc, char **argv)
 	//printf("check7\n");
 	while (stack->prev)
 		stack = stack->prev;
+	//printf("check8\n");
 	return (stack);
 }
