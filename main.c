@@ -43,7 +43,7 @@ int	main(int argc, char **argv)
 	position_min_value = get_position_min_value(stack_a);
 	printf("position_min_value: %d\n", position_min_value);
 	printf("check3\n");
-	move_min_value_up(&stack_a, &stack_b, position_min_value);
+	move_min_value_up(stack_a, stack_b, position_min_value);
 	printf("check4\n");
 	//length_array = get_length_array(stack_a, size);
 	//printf("check5\n");

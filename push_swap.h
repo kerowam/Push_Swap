@@ -73,7 +73,7 @@ void		check_int(long nb);
 int			ft_atoi_long(const char *str);
 void 		move_min_value_up(t_node **stack_a, t_node **stack_b, int position_min_value);
 void 		first_moves(t_node **stack_a, t_node **stack_b,
-								 int max_length_array_position, int *subsequence);
+					int max_length_array_position, int *subsequence);
 void		print_stack_position(t_node *stack);
 
 #endif
