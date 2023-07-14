@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:21 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/16 00:06:33 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/06/19 03:02:17 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ void		check_int(long nb);
 int			ft_atoi_long(const char *str);
 void 		move_min_value_up(t_node **stack_a, t_node **stack_b, int position_min_value);
 void 		first_moves(t_node **stack_a, t_node **stack_b,
-					int max_length_array_position, int *subsequence);
+				int max_length_array_position, int *subsequence);
 void		print_stack_position(t_node *stack);
+void		update_position(t_node **head);
 
 #endif

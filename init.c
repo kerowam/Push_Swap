@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 23:31:01 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/19 01:28:59 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/07/14 20:01:28 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	create_node(t_node **last, int value, int i)
 
 	if (!*last)
 	{
-		printf("check\n");
+		//printf("check\n");
 		insert_up_create(last, value);
 		return ;
 	}
@@ -85,10 +85,12 @@ static t_node	*create_stack(int argc, char **argv)
 		j = 0;
 		while (char_numbers[j])
 		{	
-			printf("check_create_stack\n");
+			//printf("check_create_stack\n");
 			create_node(&stack, ft_atoi_long(char_numbers[j]), i);
-			printf("creating_stack->value: %d\n", stack->value);
-			printf("creating_stack->position: %d\n", stack->position);
+			if (stack->next)
+				stack = stack->next;
+			//printf("creating_stack->value: %d\n", stack->value);
+			//printf("creating_stack->position: %d\n", stack->position);
 			i++;
 			j++;
 		}
@@ -100,9 +102,9 @@ static t_node	*create_stack(int argc, char **argv)
 			create_node(&stack, ft_atoi_long(argv[i]), i);
 			if (stack->next)
 				stack = stack->next;
-			printf("creating_stack->value: %d\n", stack->value);
+			//printf("creating_stack->value: %d\n", stack->value);
 			stack->position = i;
-			printf("creating_stack->position: %d\n", stack->position);
+			//printf("creating_stack->position: %d\n", stack->position);
 			i++;
 		}
 	}
@@ -120,14 +122,14 @@ static void	get_index_sorted(t_node *stack)
 
 	i = 0;
 	size = len_stack(stack);
-	printf("size: %d\n", size);
+	//printf("size: %d\n", size);
 	printf("\n");
 	array = get_array(stack, size);
-	print_array(array, size);
-	printf("\n");
+	//print_array(array, size);
+	//printf("\n");
 	sorted_array = sort_array(array, size);
-	print_array(array, size);
-	printf("\n");
+	//print_array(array, size);
+	//printf("\n");
 	while (i < size)
 	{
 		if (sorted_array[i] == stack->value)
@@ -157,7 +159,7 @@ t_node	*init_stack(int argc, char **argv)
 	check_args(argc, argv);
 	//printf("check1\n");
 	stack = create_stack(argc, argv);
-	print_stack_value(stack);
+	//print_stack_value(stack);
 	//printf("check2\n");
 	check_duplicates(stack);
 	//printf("check3\n");

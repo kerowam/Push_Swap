@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:33 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/19 01:42:54 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/07/14 20:02:33 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,14 @@ int	main(int argc, char **argv)
 		put_error();
 		return (0);
 	}
-	printf("check0\n");
+	//printf("check0\n");
 	stack_a = init_stack(argc, argv);
-	print_stack_value(stack_a);
+	//print_stack_value(stack_a);
 	while(stack_a->prev)
 		stack_a = stack_a->prev;
 	printf("check00\n");
 	ra(&stack_a);
-	printf("check00\n");
-	while(stack_a->prev != NULL)
-	{
-		stack_a = stack_a->prev;
-	}	
+	printf("check00\n");	
 	print_stack_value(stack_a);
 	print_stack_value(stack_b);
 	printf("check1\n");
