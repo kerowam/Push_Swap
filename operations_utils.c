@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:29 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/19 03:43:05 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/07/29 21:32:25 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,29 +43,49 @@ t_node	*delete_up(t_node **head)
 		return (NULL);
 	}
 	tmp = *head;
+	//printf("head->value: %d\n", (*head)->value);
 	*head = (*head)->next;
+	(*head)->prev = NULL;
+	//printf("tmp->value: %d\n", tmp->value);
 	return (tmp);
 }
 
 void	insert_down(t_node **stack, t_node *node)
 {
-	t_node	**last;
+	//t_node	**last;
 
-	*last = malloc(sizeof(t_node));
-	*last = *stack;
-	while ((*last)->next)
-		*last = (*last)->next;
+	print_stack_value(*stack);
+	printf("node->value: %d\n", node->value);
+	/**last = malloc(sizeof(t_node));
 	if (!last)
 	{
-		insert_up(last, node);
+		return ;
+	}*/
+	//*last = *stack;
+	while ((*stack)->next)
+	{
+		*stack = (*stack)->next;
+		//printf("last->value: %d\n", (*stack)->value);
+	}
+	if (!stack)
+	{
+		printf("check insert_down 1\n");
+		insert_up(stack, node);
 		return ;
 	}
 	else
 	{
-		(*last)->next = node;
-		node->prev = *last;
+		printf("check insert_down 2\n");
+		printf("node->value: %d\n", node->value);
+		(*stack)->next = node;
+		node->prev = *stack;
 		node->next = NULL;
-		*last = node;
+		//*last = node;
+	}
+	while ((*stack)->prev)
+	{
+		*stack = (*stack)->prev;
+		//printf("last->value: %d\n", (*stack)->value);
 	}
 	update_position(stack);
 }
