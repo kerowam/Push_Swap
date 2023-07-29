@@ -6,46 +6,49 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:29 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/07/29 21:32:25 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/07/29 22:00:06 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	insert_up(t_node **head, t_node *node)
+void	insert_up(t_node **stack, t_node *node)
 {
-
-	if (!*head)
+	while ((*stack)->prev)
+		*stack = (*stack)->prev;
+	if (!*stack)
 	{
-		*head = node;
+		*stack = node;
 		node->next = NULL;
 		node->prev = NULL;
 		return ;
 	}
 	else
 	{
-		node->next = *head;
+		node->next = *stack;
 		node->prev = NULL;
-		(*head)->prev = node;
-		*head = node;
+		(*stack)->prev = node;
+		*stack = node;
 	}
-	update_position(head);
+	update_position(stack);
 }
 
-t_node	*delete_up(t_node **head)
+t_node	*delete_up(t_node **stack)
 {
 	t_node	*tmp;
 
+	while ((*stack)->prev)
+		*stack = (*stack)->prev;
 	tmp = malloc(sizeof(t_node));
 	if (!tmp)
 	{
 		printf("Error: empty stack\n");
 		return (NULL);
 	}
-	tmp = *head;
+	tmp = *stack;
 	//printf("head->value: %d\n", (*head)->value);
-	*head = (*head)->next;
-	(*head)->prev = NULL;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
 	//printf("tmp->value: %d\n", tmp->value);
 	return (tmp);
 }
@@ -90,23 +93,26 @@ void	insert_down(t_node **stack, t_node *node)
 	update_position(stack);
 }
 
-t_node	*delete_down(t_node **last)
+t_node	*delete_down(t_node **stack)
 {
 	t_node	*tmp;
 
+	while ((*stack)->next)
+		*stack = (*stack)->next;
+	printf("last->position: %d\n", (*stack)->position);
 	tmp = malloc(sizeof(t_node));
-	if (!*last)
+	if (!*stack)
 	{
 		printf("Error: empty stack\n");
 		return (NULL);
 	}
-	if (!(*last)->next)
+	/*if (!(*last)->next)
 	{
 		return (delete_up(last));
-	}
-	tmp = *last;
-	*last = (*last)->prev;
-	(*last)->next = NULL;
+	}*/
+	tmp = *stack;
+	*stack = (*stack)->prev;
+	(*stack)->next = NULL;
 	return (tmp);
 }	
 

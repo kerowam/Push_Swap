@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:33 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/07/29 20:29:51 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/07/29 21:55:13 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 	while(stack_a->prev)
 		stack_a = stack_a->prev;
 	printf("check00\n");
-	ra(&stack_a);
+	rra(&stack_a);
 	printf("check00\n");	
 	print_stack_value(stack_a);
 	print_stack_value(stack_b);
