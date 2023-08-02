@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:29 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/07/29 22:00:06 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/02 17:40:57 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	insert_up(t_node **stack, t_node *node)
 {
-	while ((*stack)->prev)
-		*stack = (*stack)->prev;
 	if (!*stack)
 	{
 		*stack = node;
@@ -25,6 +23,8 @@ void	insert_up(t_node **stack, t_node *node)
 	}
 	else
 	{
+		while ((*stack)->prev)
+			*stack = (*stack)->prev;
 		node->next = *stack;
 		node->prev = NULL;
 		(*stack)->prev = node;
@@ -47,9 +47,18 @@ t_node	*delete_up(t_node **stack)
 	}
 	tmp = *stack;
 	//printf("head->value: %d\n", (*head)->value);
-	*stack = (*stack)->next;
-	(*stack)->prev = NULL;
+	if ((*stack)->next)
+	{
+		*stack = (*stack)->next;
+		(*stack)->prev = NULL;
+	} else 
+	{
+		*stack = NULL;
+	}
+		
 	//printf("tmp->value: %d\n", tmp->value);
+	tmp->next = NULL;
+	tmp->prev = NULL;
 	return (tmp);
 }
 
@@ -57,8 +66,8 @@ void	insert_down(t_node **stack, t_node *node)
 {
 	//t_node	**last;
 
-	print_stack_value(*stack);
-	printf("node->value: %d\n", node->value);
+	//print_stack_value(*stack);
+	//printf("node->value: %d\n", node->value);
 	/**last = malloc(sizeof(t_node));
 	if (!last)
 	{
@@ -72,14 +81,14 @@ void	insert_down(t_node **stack, t_node *node)
 	}
 	if (!stack)
 	{
-		printf("check insert_down 1\n");
+		//printf("check insert_down 1\n");
 		insert_up(stack, node);
 		return ;
 	}
 	else
 	{
-		printf("check insert_down 2\n");
-		printf("node->value: %d\n", node->value);
+		//printf("check insert_down 2\n");
+		//printf("node->value: %d\n", node->value);
 		(*stack)->next = node;
 		node->prev = *stack;
 		node->next = NULL;
@@ -99,7 +108,7 @@ t_node	*delete_down(t_node **stack)
 
 	while ((*stack)->next)
 		*stack = (*stack)->next;
-	printf("last->position: %d\n", (*stack)->position);
+	//printf("last->position: %d\n", (*stack)->position);
 	tmp = malloc(sizeof(t_node));
 	if (!*stack)
 	{
@@ -113,6 +122,7 @@ t_node	*delete_down(t_node **stack)
 	tmp = *stack;
 	*stack = (*stack)->prev;
 	(*stack)->next = NULL;
+	tmp->prev = NULL;
 	return (tmp);
 }	
 
