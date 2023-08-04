@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 21:38:51 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/15 22:44:59 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/04 22:10:59 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,26 @@
 
 void	move_min_value_up(t_node **stack_a, t_node **stack_b, int position_min_value)
 {
-	int		size;
-	int		*array;
-	int		position_target;
-	t_node	*last;
+	int	size;
+	int	moves;
 
 	size = len_stack(*stack_a);
-	array = get_array(*stack_a, size);
-	position_target = position_min_value;
-	last = *stack_a;
-	while (last)
+
+	if (position_min_value > (size / 2))
 	{
-		if (last->position != position_target)
+		moves = position_min_value - size + 1;
+		while (moves > 0)
 		{
 			rra(stack_a);
-			pb(stack_a, stack_b);
-			last = last->prev;
+			moves--;
 		}
-		else if (last->position == position_target)
+	} else if (position_min_value <= (size / 2))
+	{
+		moves = position_min_value - 1;
+		while (moves > 0)
 		{
-			rra(stack_a);
-			last = last->prev;
-			position_target = get_position_min_value(*stack_a);
+			ra(stack_a);
+			moves--;
 		}
 	}
 }

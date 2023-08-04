@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:33 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/02 17:20:24 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/04 21:43:24 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,35 +43,35 @@ int	main(int argc, char **argv)
 	//ra(&stack_a);
 	//print_stack_value(stack_a);
 	printf("check1\n");
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
-	print_stack_value(stack_a);
-	print_stack_value(stack_b);
-	sa(&stack_a);
-	sb(&stack_b);
-	print_stack_value(stack_a);
-	print_stack_value(stack_b);
-	ss(&stack_a, &stack_b);
-	print_stack_value(stack_a);
-	print_stack_value(stack_b);
-	ra(&stack_a);
-	rb(&stack_b);
-	rr(&stack_a, &stack_b);
-	print_stack_value(stack_a);
-	print_stack_value(stack_b);
-	rra(&stack_a);
-	rrb(&stack_b);
-	rrr(&stack_a, &stack_b);
-	print_stack_value(stack_a);
-	print_stack_value(stack_b);
-	pa(&stack_a, &stack_b);
-	pa(&stack_a, &stack_b);
-	pa(&stack_a, &stack_b);
-	print_stack_value(stack_a);
-	printf("checking empty stack_b\n");
-	print_stack_value(stack_b);
-	printf("check1.2\n");
+	//pb(&stack_a, &stack_b);
+	//pb(&stack_a, &stack_b);
+	//pb(&stack_a, &stack_b);
+	//print_stack_value(stack_a);
+	//print_stack_value(stack_b);
+	//sa(&stack_a);
+	//sb(&stack_b);
+	//print_stack_value(stack_a);
+	//print_stack_value(stack_b);
+	//ss(&stack_a, &stack_b);
+	//print_stack_value(stack_a);
+	//print_stack_value(stack_b);
+	//ra(&stack_a);
+	//rb(&stack_b);
+	//rr(&stack_a, &stack_b);
+	//print_stack_value(stack_a);
+	//print_stack_value(stack_b);
+	//rra(&stack_a);
+	//rrb(&stack_b);
+	//rrr(&stack_a, &stack_b);
+	//print_stack_value(stack_a);
+	//print_stack_value(stack_b);
+	//pa(&stack_a, &stack_b);
+	//pa(&stack_a, &stack_b);
+	//pa(&stack_a, &stack_b);
+	//print_stack_value(stack_a);
+	//printf("checking empty stack_b\n");
+	//print_stack_value(stack_b);
+	//printf("check1.2\n");
 	size = len_stack(stack_a);
 	array = get_array(stack_a, size);
 	printf("size: %d\n", size);
@@ -80,14 +80,14 @@ int	main(int argc, char **argv)
 	position_min_value = get_position_min_value(stack_a);
 	printf("position_min_value: %d\n", position_min_value);
 	printf("check3\n");
-	//move_min_value_up(&stack_a, &stack_b, position_min_value);
+	move_min_value_up(&stack_a, &stack_b, position_min_value);
+	print_stack_value(stack_a);
 	printf("check4\n");
 	length_array = get_length_array(stack_a, size);
 	//printf("check5\n");
 	print_array(length_array, size);
 	//printf("check6\n");
-	max_length_array_position = get_max_length_array_position(length_array,
-			size);
+	max_length_array_position = get_max_length_array_position(length_array, size);
 	//printf("check7\n");
 	subsequence = get_subsequence(stack_a, size);
 	//printf("check8\n");
