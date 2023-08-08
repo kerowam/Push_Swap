@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 21:38:51 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/08 15:28:37 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/09 00:29:30 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,31 +36,52 @@ void	move_min_value_up(t_node **stack, int position_min_value)
 			moves--;
 		}
 	}
+	update_position(stack);
 }
 
-void	first_moves(t_node **stack_a, t_node **stack_b, int max_length_array_position, int *subsequence)
+void	first_moves(t_node **stack_a, t_node **stack_b, int max_length_array_position, int *subsequence, int size)
 {
 
 	int 		position_target;
+	t_node		*tmp;
+	//t_node		*last;
 
-	while ((*stack_a)->next)
+	tmp = malloc(sizeof(t_node));
+	if (!tmp)
 	{
-		*stack_a = (*stack_a)->next;
+		return;
 	}
-	position_target = max_length_array_position;
-	while (*stack_a)
+	//last = malloc(sizeof(t_node));
+	//if (!last)
+	//{
+	//	return;
+	//}
+	tmp = *stack_a;
+	while (tmp->next)
 	{
-		if ((*stack_a)->position != position_target)
+		tmp = tmp->next;
+	}
+	//last = tmp;
+	position_target = max_length_array_position;
+	while (size > 0)
+	{
+		if (tmp->position != position_target)
 		{
+			tmp = tmp->prev;
 			rra(stack_a);
 			pb(stack_a, stack_b);
-			*stack_a = (*stack_a)->prev;
+			//last = tmp;
+			size--;
 		}
-		else if ((*stack_a)->position == position_target)
+		else if (tmp->position == position_target)
 		{
+			tmp = tmp->prev;
 			rra(stack_a);
-			*stack_a = (*stack_a)->prev;
-			position_target = subsequence[position_target];
+			//last = tmp;
+			position_target = subsequence[position_target -1] + 1;
+			size--;
 		}
 	}
+	update_position(stack_a);
+	update_position(stack_b);
 }

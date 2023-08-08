@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 21:21:46 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/15 22:55:20 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/08 17:25:16 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,10 @@ int	get_position_min_value(t_node *stack)
 	int	min_value;
 
 	min_value = get_min_value(stack);
-	printf("min_value: %d\n", min_value);
+	//printf("min_value: %d\n", min_value);
 	while (stack)
 	{
-		printf("stack->position: %d\n", stack->position);
+		//printf("stack->position: %d\n", stack->position);
 		if (stack->value == min_value)
 			return (stack->position);
 		stack = stack->next;

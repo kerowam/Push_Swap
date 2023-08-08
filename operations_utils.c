@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:29 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/02 17:40:57 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/08 17:21:02 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	insert_up(t_node **stack, t_node *node)
 		(*stack)->prev = node;
 		*stack = node;
 	}
-	update_position(stack);
+	//update_position(stack);
 }
 
 t_node	*delete_up(t_node **stack)
@@ -99,7 +99,7 @@ void	insert_down(t_node **stack, t_node *node)
 		*stack = (*stack)->prev;
 		//printf("last->value: %d\n", (*stack)->value);
 	}
-	update_position(stack);
+	//update_position(stack);
 }
 
 t_node	*delete_down(t_node **stack)
