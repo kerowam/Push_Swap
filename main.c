@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:33 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/09 14:19:08 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/09 17:14:20 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,14 +93,15 @@ int	main(int argc, char **argv)
 	subsequence = get_subsequence(stack_a, size_a);
 	//printf("check8\n");
 	print_array(subsequence, size_a);
-	//printf("check9\n");
+	printf("check9\n");
 	first_moves(&stack_a, &stack_b, max_length_array_position, subsequence, size_a);
-	//printf("check10\n");
 	print_stack_value(stack_a);
 	print_stack_value(stack_b);
 	size_a = len_stack(stack_a);
 	size_b = len_stack(stack_b);
 	calculate_cost_b(&stack_b, size_b);
+	printf("check10\n");
+	calculate_cost_a(&stack_a, &stack_b, size_a);
 	print_stack_value(stack_b);
 	//printf("stack_a_position: %d\n", stack_a->position);
 	//printf("stack_b_position: %d\n", stack_b->position);

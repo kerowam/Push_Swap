@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 12:44:40 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/09 14:58:38 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/09 17:55:41 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,33 @@ void    calculate_cost_b(t_node **stack_b, int size_b)
                 tmp->cost_b = size_b - tmp->position + 1;
         }
         tmp = tmp->next;
+    }
+}
+
+void    calculate_cost_a(t_node **stack_a, t_node **stack_b, int size_a)
+{
+    t_node  *tmp_a;
+    t_node  *tmp_b;
+    int     i;
+
+    tmp_a = malloc(sizeof(t_node));
+    tmp_b = malloc(sizeof(t_node));
+    if(!tmp_a || !tmp_b)
+        return;
+    tmp_b = *stack_b;
+    while (tmp_b)
+    {
+        tmp_a = *stack_a;
+        i = 0;
+        while (tmp_a && tmp_a->index_sorted < tmp_b->index_sorted)
+        {
+            tmp_a = tmp_a->next;
+            i++;
+        }
+        if (i < size_a / 2)
+            tmp_b->cost_a = i;
+        else
+            tmp_b->cost_a = size_a - i;
+        tmp_b = tmp_b->next;
     }
 }
