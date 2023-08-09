@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:33 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/08 21:52:15 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/09 14:19:08 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int	main(int argc, char **argv)
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
-	int		size;
+	int		size_a;
+	int		size_b;
 	int 	*length_array;
 	int 	*subsequence;
 	int		*array;
@@ -72,8 +73,8 @@ int	main(int argc, char **argv)
 	//printf("checking empty stack_b\n");
 	//print_stack_value(stack_b);
 	//printf("check1.2\n");
-	size = len_stack(stack_a);
-	array = get_array(stack_a, size);
+	size_a = len_stack(stack_a);
+	array = get_array(stack_a, size_a);
 	//printf("size: %d\n", size);
 	//printf("stack_a_position: %d\n", stack_a->position);
 	//printf("check2\n");
@@ -83,19 +84,25 @@ int	main(int argc, char **argv)
 	move_min_value_up(&stack_a, position_min_value);
 	print_stack_value(stack_a);
 	printf("check4\n");
-	length_array = get_length_array(stack_a, size);
+	length_array = get_length_array(stack_a, size_a);
 	//printf("check5\n");
-	print_array(length_array, size);
+	print_array(length_array, size_a);
 	//printf("check6\n");	
-	max_length_array_position = get_max_length_array_position(length_array, size);
+	max_length_array_position = get_max_length_array_position(length_array, size_a);
 	//printf("check7\n");
-	subsequence = get_subsequence(stack_a, size);
+	subsequence = get_subsequence(stack_a, size_a);
 	//printf("check8\n");
-	print_array(subsequence, size);
+	print_array(subsequence, size_a);
 	//printf("check9\n");
-	first_moves(&stack_a, &stack_b, max_length_array_position, subsequence, size);
+	first_moves(&stack_a, &stack_b, max_length_array_position, subsequence, size_a);
 	//printf("check10\n");
 	print_stack_value(stack_a);
 	print_stack_value(stack_b);
+	size_a = len_stack(stack_a);
+	size_b = len_stack(stack_b);
+	calculate_cost_b(&stack_b, size_b);
+	print_stack_value(stack_b);
+	//printf("stack_a_position: %d\n", stack_a->position);
+	//printf("stack_b_position: %d\n", stack_b->position);
 	return (0);
 }

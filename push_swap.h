@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:21 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/08 21:50:45 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/09 14:14:40 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ void 		first_moves(t_node **stack_a, t_node **stack_b,
 				int max_length_array_position, int *subsequence, int size);
 void		print_stack_position(t_node *stack);
 void		update_position(t_node **head);
+void		calculate_cost_b(t_node **stack_b, int size_b);
 
 #endif
