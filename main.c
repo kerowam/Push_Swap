@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:33 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/09 18:16:21 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/10 01:39:14 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(int argc, char **argv)
 	int		*array;
 	int		position_min_value;
 	int 	max_length_array_position;
+	int		index_minimum_cost;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -104,6 +105,8 @@ int	main(int argc, char **argv)
 	calculate_cost_a(&stack_a, &stack_b, size_a);
 	calculate_total_cost(&stack_b);
 	print_stack_value(stack_b);
+	index_minimum_cost = select_index_minimum_cost(&stack_b);
+	printf("index_minimum_cost: %d\n", index_minimum_cost);
 	//printf("stack_a_position: %d\n", stack_a->position);
 	//printf("stack_b_position: %d\n", stack_b->position);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:21 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/09 18:15:43 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/10 01:38:13 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ void		update_position(t_node **head);
 void		calculate_cost_b(t_node **stack_b, int size_b);
 void		calculate_cost_a(t_node **stack_a, t_node **stack_b, int size_a);
 void		calculate_total_cost(t_node **stack_b);
+int 		select_index_minimum_cost(t_node **stack_b);
 
 #endif

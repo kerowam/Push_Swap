@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 12:44:40 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/09 18:14:07 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/10 01:37:57 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,27 @@ void    calculate_total_cost(t_node **stack_b)
         tmp->total_cost = tmp->cost_a + tmp->cost_b + 1;
         tmp = tmp->next;
     }
+}
+
+int select_index_minimum_cost(t_node **stack_b)
+{
+    t_node  *tmp;
+    int     minimun_cost;
+    int     index_sorted;
+
+    minimun_cost = 50000;
+    tmp = malloc(sizeof(t_node));
+    if(!tmp)
+        return (0);
+    tmp = *stack_b;
+    while(tmp)
+    {
+        if (minimun_cost > tmp->total_cost)
+        {
+            minimun_cost = tmp->total_cost;
+            index_sorted = tmp->index_sorted;
+        } 
+        tmp = tmp->next;
+    }
+    return (index_sorted);
 }
