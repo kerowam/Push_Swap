@@ -6,17 +6,17 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 22:14:01 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/12 22:56:40 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/09 16:37:22 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char *ft_strjoin_gnl(char *s1, char *s2)
+static char	*ft_strjoin_gnl(char *s1, char *s2)
 {
-	size_t i;
-	size_t j;
-	char *str;
+	size_t	i;
+	size_t	j;
+	char	*str;
 
 	if (!s1 || !s2)
 		return (0);
@@ -41,10 +41,10 @@ static char *ft_strjoin_gnl(char *s1, char *s2)
 	return (str);
 }
 
-static char *ft_strdup_gnl(char *s1)
+static char	*ft_strdup_gnl(char *s1)
 {
-	char *ptr;
-	int i;
+	char	*ptr;
+	int		i;
 
 	if (!s1)
 		return (NULL);
@@ -62,10 +62,10 @@ static char *ft_strdup_gnl(char *s1)
 	return (ptr);
 }
 
-static char *make_line(char *stack)
+static char	*make_line(char *stack)
 {
-	char *line;
-	int i;
+	char	*line;
+	int		i;
 
 	if (!*stack)
 		return (NULL);
@@ -89,11 +89,11 @@ static char *make_line(char *stack)
 	return (line);
 }
 
-static char *update_stack(char *stack)
+static char	*update_stack(char *stack)
 {
-	char *aux;
-	char *ptr;
-	int i;
+	char	*aux;
+	char	*ptr;
+	int		i;
 
 	ptr = ft_strchr(stack, '\n');
 	if (!ptr)
@@ -117,10 +117,10 @@ static char *update_stack(char *stack)
 	return (aux);
 }
 
-static char *ft_reader(int fd, char *stack)
+static char	*ft_reader(int fd, char *stack)
 {
-	char *buffer;
-	int reader;
+	char	*buffer;
+	int		reader;
 
 	if (!stack)
 		stack = calloc(1, sizeof(char));
@@ -145,10 +145,10 @@ static char *ft_reader(int fd, char *stack)
 	return (stack);
 }
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-	static char *stack[4096];
-	char *line;
+	static char	*stack[4096];
+	char		*line;
 
 	line = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)

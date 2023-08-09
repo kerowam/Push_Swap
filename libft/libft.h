@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfredes- <gfredes-@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:45:44 by gfredes-          #+#    #+#             */
-/*   Updated: 2022/12/29 21:07:58 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/09 16:35:22 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
  * 
  * @param c: The character to check.
  * @return int: 1 if the character is an alphabetic character, 0 otherwise.
- */ 
+ */
 int				ft_isalpha(int c);
 
 /**
@@ -474,7 +474,7 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
  * @return int: The number of characters written, excluding the terminating NUL,
  * or a negative number if an error occurred.
  */
-int					ft_printf(char const *str, ...);
+int				ft_printf(char const *str, ...);
 
 /**
  * @brief Devuelve la línea leída de un file descriptor
@@ -483,6 +483,6 @@ int					ft_printf(char const *str, ...);
  * @return Si todo va bien: la línea leída. 
  * En caso de fallo o si la lectura termina: NULL
  */
-char				*get_next_line(int fd);
+char			*get_next_line(int fd);
 
 #endif
