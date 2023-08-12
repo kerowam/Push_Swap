@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 12:44:40 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/12 18:15:18 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/12 19:17:37 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,14 @@ int select_index_minimum_cost(t_node **stack_b)
         {
             minimun_cost = tmp->total_cost;
             index_sorted = tmp->index_sorted;
-        } 
+        } else if (minimun_cost == tmp->total_cost)
+        {
+            if (tmp->index_sorted > index_sorted)
+            {
+                minimun_cost = tmp->total_cost;
+                index_sorted = tmp->index_sorted;
+            }
+        }
         tmp = tmp->next;
     }
     return (index_sorted);
