@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 21:38:51 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/09 00:29:30 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/13 13:43:54 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,91 @@ void	first_moves(t_node **stack_a, t_node **stack_b, int max_length_array_positi
 	}
 	update_position(stack_a);
 	update_position(stack_b);
+}
+
+void	move_minimum_cost(t_node **stack_a, t_node **stack_b, int index_sorted_minimum_cost)
+{
+	//t_node  *tmp_a;
+    t_node  *tmp_b;
+	int		cost_a;
+	int		cost_b;
+
+    //tmp_a = malloc(sizeof(t_node));
+    tmp_b = malloc(sizeof(t_node));
+    if(/*!tmp_a || */!tmp_b)
+        return;
+    //tmp_a = *stack_a;
+	tmp_b = *stack_b;
+	while (tmp_b && tmp_b->index_sorted != index_sorted_minimum_cost)
+		tmp_b = tmp_b->next;
+	cost_a = tmp_b->cost_a;
+	cost_b = tmp_b->cost_b;
+	while(cost_a != 0 || cost_b != 0)
+	{
+		if (cost_a > 0 && cost_b > 0)
+		{
+			rr(stack_a, stack_b);
+			cost_a -= 1;
+			cost_b -= 1;
+		} else if (cost_a < 0 && cost_b < 0)
+		{
+			rrr(stack_a, stack_b);
+			cost_a += 1;
+			cost_b += 1;
+		} else if (cost_a > 0 && cost_b < 0)
+		{
+			ra(stack_a);
+			rrb(stack_b);
+			cost_a -= 1;
+			cost_b += 1;
+		} else if (cost_a < 0 && cost_b > 0)
+		{
+			rb(stack_b);
+			rra(stack_a);
+			cost_a += 1;
+			cost_b -= 1;
+		} else if (cost_a > 0)
+		{
+			ra(stack_a);
+			cost_a -= 1;
+		} else if (cost_a < 0)
+		{
+			rra(stack_a);
+			cost_a += 1;
+		} else if (cost_b > 0)
+		{
+			rb(stack_b);
+			cost_b -= 1;
+		} else if (cost_b < 0)
+		{
+			rrb(stack_b);
+			cost_b += 1;
+		} 
+	}
+	pa(stack_a, stack_b);
+	update_position(stack_a);
+	update_position(stack_b);
+}
+
+void	final_moves(t_node **stack_a, t_node **stack_b,int size_a, int size_b)
+{
+	int		index_sorted_minimum_cost;
+	int		position_min_value;
+
+	while (size_b > 0)
+	{
+		calculate_cost_b(stack_b, size_b);
+		calculate_cost_a(stack_a, stack_b, size_a);
+		calculate_total_cost(stack_b);
+		index_sorted_minimum_cost = select_index_minimum_cost(stack_b);
+		move_minimum_cost(stack_a, stack_b, index_sorted_minimum_cost);
+		size_b -= 1;
+		size_a += 1;
+	}
+	while ((*stack_a)->prev)
+		*stack_a = (*stack_a)->prev;
+	position_min_value = get_position_min_value(stack_a);
+	move_min_value_up(stack_a, position_min_value);
+	while ((*stack_a)->prev)
+		*stack_a = (*stack_a)->prev;
 }

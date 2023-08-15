@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:21 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/10 01:38:13 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/13 13:31:11 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@ t_node		*init_stack(int argc, char **argv);
 void		check_numbers(int argc, char **argv);
 void		check_duplicates(t_node *stack);
 void		check_args(int argc, char **argv);
-int			get_min_value(t_node *stack);
+int			get_min_value(t_node **stack);
 int			check_is_sorted(t_node *stack);
 int			check_is_reverse_sorted(t_node *stack);
 int			len_stack(t_node *stack);
 int			*get_array(t_node *stack, int size);
 int			*sort_array(int *array, int size);
-int			get_position_min_value(t_node *stack);
+int			get_position_min_value(t_node **stack);
 int			*init_length_array(int size);
 int			*get_length_array(t_node *stack, int size);
 int			get_max_length_array_position(int *length_array, int size);
@@ -80,5 +80,7 @@ void		calculate_cost_b(t_node **stack_b, int size_b);
 void		calculate_cost_a(t_node **stack_a, t_node **stack_b, int size_a);
 void		calculate_total_cost(t_node **stack_b);
 int 		select_index_minimum_cost(t_node **stack_b);
+void		move_minimum_cost(t_node **stack_a, t_node **stack_b, int index_sorted_minimum_cost);
+void		final_moves(t_node **stack_a, t_node **stack_b,int size_a, int size_b);
 
 #endif

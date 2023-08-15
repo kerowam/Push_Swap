@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 23:31:01 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/07/14 20:01:28 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/13 13:32:50 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,7 +163,7 @@ t_node	*init_stack(int argc, char **argv)
 	//printf("check2\n");
 	check_duplicates(stack);
 	//printf("check3\n");
-	get_min_value(stack);
+	get_min_value(&stack);
 	//printf("check4\n");
 	check_is_sorted(stack);
 	//printf("check5\n");
