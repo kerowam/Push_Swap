@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:33 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/15 18:41:19 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/19 01:20:25 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,11 @@ int	main(int argc, char **argv)
 	//printf("stack_a_position: %d\n", stack_a->position);
 	//printf("check2\n");
 	position_min_value = get_position_min_value(&stack_a);
-	printf("position_min_value: %d\n", position_min_value);
-	printf("check3\n");
+	//printf("position_min_value: %d\n", position_min_value);
+	//printf("check3\n");
 	move_min_value_up(&stack_a, position_min_value);
-	print_stack_value(stack_a);
-	printf("check4\n");
+	//print_stack_value(stack_a);
+	//printf("check4\n");
 	length_array = get_length_array(stack_a, size_a);
 	//printf("check5\n");
 	//print_array(length_array, size_a);
@@ -94,21 +94,23 @@ int	main(int argc, char **argv)
 	subsequence = get_subsequence(stack_a, size_a);
 	//printf("check8\n");
 	//print_array(subsequence, size_a);
-	printf("check9\n");
+	//printf("check9\n");
 	first_moves(&stack_a, &stack_b, max_length_array_position, subsequence, size_a);
 	print_stack_value(stack_a);
 	//print_stack_value(stack_b);
 	size_a = len_stack(stack_a);
 	size_b = len_stack(stack_b);
 	calculate_cost_b(&stack_b, size_b);
-	print_stack_value(stack_b);
+	//print_stack_value(stack_b);
+	position_min_value = get_position_min_value(&stack_a);
+	calculate_target_position(&stack_a, &stack_b, position_min_value);
 	printf("check10\n");
 	calculate_cost_a(&stack_a, &stack_b, size_a);
-	print_stack_value(stack_b);
+	//print_stack_value(stack_b);
 	calculate_total_cost(&stack_b);
 	print_stack_value(stack_b);
-	index_sorted_minimum_cost = select_index_minimum_cost(&stack_b);
-	printf("index_minimum_cost: %d\n", index_sorted_minimum_cost);
+	//index_sorted_minimum_cost = select_index_minimum_cost(&stack_b);
+	//printf("index_minimum_cost: %d\n", index_sorted_minimum_cost);
 	//printf("stack_a_position: %d\n", stack_a->position);
 	//printf("stack_b_position: %d\n", stack_b->position);
 	//move_minimum_cost(&stack_a, &stack_b, index_sorted_minimum_cost);

@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 20:50:07 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/12 21:01:55 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/18 20:04:47 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	print_stack_value(t_node *stack)
 		printf("index_sorted: %d\n", tmp->index_sorted);
 		printf("stack->cost_a: %d\n", tmp->cost_a);
 		printf("stack->cost_b: %d\n", tmp->cost_b);
-		printf("total_cost: %d\n\n", tmp->total_cost);
+		printf("total_cost: %d\n", tmp->total_cost);
+		printf("target_position: %d\n\n", tmp->target_position);
 		tmp = tmp->next;
 	}
 }
