@@ -6,20 +6,20 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:33 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/19 01:20:25 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/19 18:58:11 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
 
-int	main(int argc, char **argv) 
+int	main(int argc, char **argv)
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
 	int		size_a;
 	int		size_b;
-	int 	*length_array;
+	int		*length_array;
 	int 	*subsequence;
 	int		*array;
 	int		position_min_value;
