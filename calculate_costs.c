@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 12:44:40 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/19 20:14:44 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/23 22:03:59 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	calculate_target_position(t_node **stack_a,
 			if (tmp_b->index_sorted < index_sorted_head
 				&& tmp_b->index_sorted < index_sorted_last)
 			{
-				while (tmp_b->index_sorted != index_sorted_min_value)
+				while (tmp_a->index_sorted != index_sorted_min_value)
 					tmp_a = tmp_a->next;
 				while (tmp_b->target_position == 0 && tmp_a)
 				{
