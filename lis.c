@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 01:57:21 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/15 22:13:55 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/24 18:28:52 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,13 @@ int	get_max_length_array_position(int *length_array, int size)
 	return (max_length_array_position);
 }
 
-int *get_subsequence(t_node *stack, int size)
+int	*get_subsequence(t_node *stack, int size)
 {
-	int *array;
-	int *length_array;
-	int *subsequence;
-	int i;
-	int j;
+	int	*array;
+	int	*length_array;
+	int	*subsequence;
+	int	i;
+	int	j;
 
 	i = 1;
 	j = 0;
@@ -82,6 +82,8 @@ int *get_subsequence(t_node *stack, int size)
 				length_array[i] = length_array[j] + 1;
 				subsequence[i] = j;
 			}
+			else
+				subsequence[i] = i;
 			j++;
 		}
 		j = 0;
