@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 23:31:01 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/24 21:43:03 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/26 22:10:31 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,6 @@ static void	get_index_sorted(t_node *stack)
 
 	i = 0;
 	size = len_stack(stack);
-	printf("\n");
 	array = get_array(stack, size);
 	sorted_array = sort_array(array, size);
 	while (i < size)

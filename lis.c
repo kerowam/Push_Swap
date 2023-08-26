@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 01:57:21 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/25 21:14:47 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/26 23:37:24 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,23 @@ int	*get_subsequence(t_node *stack, int size, int *array, int *length_array)
 		i++;
 	}
 	return (subsequence);
+}
+
+void	lis(t_node *stack_a, t_node *stack_b, int size_a, int size_b)
+{
+	int		*length_array;
+	int		*length_array_init;
+	int		*subsequence;
+	int		*array;
+	int		max_length_array_position;
+
+	array = get_array(stack_a, size_a);
+	length_array = get_length_array(stack_a, size_a);
+	max_length_array_position = get_max_length_array_position(length_array, size_a);
+	length_array_init = init_length_array(size_a);
+	subsequence = get_subsequence(stack_a, size_a, array, length_array_init);
+	first_moves(&stack_a, &stack_b, max_length_array_position, subsequence);
+	size_a = len_stack(stack_a);
+	size_b = len_stack(stack_b);
+	final_moves(&stack_a, &stack_b, size_a, size_b);
 }

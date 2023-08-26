@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 21:38:51 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/24 20:08:43 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/26 23:36:15 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ void	final_moves(t_node **stack_a, t_node **stack_b, int size_a, int size_b)
 		calculate_cost_a(stack_a, stack_b, size_a);
 		calculate_total_cost(stack_b);
 		index_sorted_minimum_cost = select_index_minimum_cost(stack_b);
-		printf("index_sorted_minimum_cost: %d\n\n", index_sorted_minimum_cost);
 		move_minimum_cost(stack_a, stack_b, index_sorted_minimum_cost);
 		size_b -= 1;
 		size_a += 1;

@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:21 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/26 14:06:55 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/26 23:11:44 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,6 @@ void		set_target_position_case3(t_node *tmp_a, t_node *tmp_b);
 void		set_target_positions(t_node *tmp_a, t_node *tmp_b,
 				int position_min_value, int index_sorted_min_value);
 void		select_cost(t_node *tmp, int cost_a, int cost_b);
+void		lis(t_node *stack_a, t_node *stack_b, int size_a, int size_b);
 
 #endif
