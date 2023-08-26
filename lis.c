@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 01:57:21 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/26 23:37:24 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/27 00:46:29 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,8 @@ void	lis(t_node *stack_a, t_node *stack_b, int size_a, int size_b)
 
 	array = get_array(stack_a, size_a);
 	length_array = get_length_array(stack_a, size_a);
-	max_length_array_position = get_max_length_array_position(length_array, size_a);
+	max_length_array_position = get_max_length_array_position(length_array,
+			size_a);
 	length_array_init = init_length_array(size_a);
 	subsequence = get_subsequence(stack_a, size_a, array, length_array_init);
 	first_moves(&stack_a, &stack_b, max_length_array_position, subsequence);

@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 20:50:07 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/24 21:06:08 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/27 00:42:30 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,6 @@ void	put_error(void)
 {
 	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
-}
-
-void	print_stack_position(t_node *stack)
-{
-	t_node	*tmp;
-
-	tmp = stack;
-	printf("Stack:\n");
-	while (tmp)
-	{
-		printf("stack_position: %d\n", tmp->position);
-		tmp = tmp->next;
-	}
 }
 
 int	len_stack(t_node *stack)
@@ -108,4 +95,17 @@ void	print_array(int *array, int size)
 	}
 	printf("\n");
 	return ;
+}
+
+void	print_stack_position(t_node *stack)
+{
+	t_node	*tmp;
+
+	tmp = stack;
+	printf("Stack:\n");
+	while (tmp)
+	{
+		printf("stack_position: %d\n", tmp->position);
+		tmp = tmp->next;
+	}
 }

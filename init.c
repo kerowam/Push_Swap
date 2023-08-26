@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 23:31:01 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/26 22:10:31 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/27 00:47:54 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,9 @@ static void	insert_up_create(t_node **head, int value)
 
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
-	{
-		printf("Error: malloc failed\n");
 		return ;
-	}
-		new_node->value = value;
-		new_node->position = 1;
+	new_node->value = value;
+	new_node->position = 1;
 	if (!*head)
 	{
 		new_node->next = NULL;
@@ -53,10 +50,7 @@ void	create_node(t_node **last, int value, int i)
 
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
-	{
-		printf("Error: malloc failed\n");
 		return ;
-	}
 	new_node->value = value;
 	new_node->position = i;
 	new_node->next = NULL;

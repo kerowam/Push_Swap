@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:29 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/24 00:45:11 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/27 00:44:36 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,7 @@ t_node	*delete_up(t_node **stack)
 		*stack = (*stack)->prev;
 	tmp = malloc(sizeof(t_node));
 	if (!tmp)
-	{
-		printf("Error: empty stack\n");
 		return (NULL);
-	}
 	tmp = *stack;
 	if ((*stack)->next)
 	{
@@ -86,10 +83,7 @@ t_node	*delete_down(t_node **stack)
 		*stack = (*stack)->next;
 	tmp = malloc(sizeof(t_node));
 	if (!*stack)
-	{
-		printf("Error: empty stack\n");
 		return (NULL);
-	}
 	tmp = *stack;
 	*stack = (*stack)->prev;
 	(*stack)->next = NULL;
