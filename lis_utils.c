@@ -6,16 +6,16 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 21:21:46 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/15 16:44:51 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/24 18:12:54 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int *get_array(t_node *stack, int size)
+int	*get_array(t_node *stack, int size)
 {
-	int *array;
-	int i;
+	int	*array;
+	int	i;
 
 	i = 0;
 	array = malloc(sizeof(int) * size);
@@ -24,18 +24,17 @@ int *get_array(t_node *stack, int size)
 	while (stack)
 	{
 		array[i] = stack->value;
-		//printf("array[%d]: %d\n", i, array[i]);
 		stack = stack->next;
 		i++;
 	}
 	return (array);
 }
 
-int *sort_array(int *array, int size)
+int	*sort_array(int *array, int size)
 {
-	int i;
-	int j;
-	int tmp;
+	int	i;
+	int	j;
+	int	tmp;
 
 	i = 0;
 	while (i < size - 1)
@@ -74,15 +73,13 @@ int	get_min_value(t_node **stack)
 
 int	get_position_min_value(t_node **stack)
 {
-	int	min_value;
+	int		min_value;
 	t_node	*tmp;
 
 	tmp = *stack;
 	min_value = get_min_value(stack);
-	//printf("min_value: %d\n", min_value);
 	while (tmp)
 	{
-		//printf("stack->position: %d\n", stack->position);
 		if (tmp->value == min_value)
 			return (tmp->position);
 		tmp = tmp->next;
@@ -92,8 +89,8 @@ int	get_position_min_value(t_node **stack)
 
 int	*init_length_array(int size)
 {
-	int *length_array;
-	int i;
+	int	*length_array;
+	int	i;
 
 	i = 0;
 	length_array = malloc(sizeof(int) * size);

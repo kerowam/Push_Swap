@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 01:57:21 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/24 18:28:52 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/25 21:14:47 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,23 +58,19 @@ int	get_max_length_array_position(int *length_array, int size)
 	return (max_length_array_position);
 }
 
-int	*get_subsequence(t_node *stack, int size)
+int	*get_subsequence(t_node *stack, int size, int *array, int *length_array)
 {
-	int	*array;
-	int	*length_array;
 	int	*subsequence;
 	int	i;
 	int	j;
 
 	i = 1;
-	j = 0;
-	array = get_array(stack, size);
-	length_array = init_length_array(size);
 	subsequence = malloc(sizeof(int) * size);
 	if (!subsequence)
 		return (NULL);
 	while (i < size)
 	{
+		j = 0;
 		while (j < i)
 		{
 			if (array[j] < array[i] && length_array[j] + 1 > length_array[i])
@@ -82,11 +78,10 @@ int	*get_subsequence(t_node *stack, int size)
 				length_array[i] = length_array[j] + 1;
 				subsequence[i] = j;
 			}
-			else
+			else if (j == i - 1 && subsequence[i] == 0 && array[j] > array[i])
 				subsequence[i] = i;
 			j++;
 		}
-		j = 0;
 		i++;
 	}
 	return (subsequence);

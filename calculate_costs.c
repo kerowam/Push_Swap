@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 12:44:40 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/23 22:03:59 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/26 14:14:17 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,8 @@ void	calculate_target_position(t_node **stack_a,
 	tmp_a = *stack_a;
 	tmp_b = *stack_b;
 	index_sorted_head = tmp_a->index_sorted;
-	while (tmp_a->next)
-	{
-		if (tmp_a->position == position_min_value)
-			index_sorted_min_value = tmp_a->index_sorted;
-		tmp_a = tmp_a->next;
-	}
-	if (tmp_a->position == position_min_value)
-		index_sorted_min_value = tmp_a->index_sorted;
+	index_sorted_min_value = get_index_sortd_min_val(tmp_a, position_min_value);
+    tmp_a = move_pointer_to_last(tmp_a);
 	index_sorted_last = tmp_a->index_sorted;
 	while (tmp_b)
 	{
@@ -69,41 +63,8 @@ void	calculate_target_position(t_node **stack_a,
 			tmp_b->target_position = position_min_value;
 		else if (tmp_b->index_sorted > index_sorted_min_value)
 		{
-			if (tmp_b->index_sorted < index_sorted_head
-				&& tmp_b->index_sorted < index_sorted_last)
-			{
-				while (tmp_a->index_sorted != index_sorted_min_value)
-					tmp_a = tmp_a->next;
-				while (tmp_b->target_position == 0 && tmp_a)
-				{
-					if (tmp_a->index_sorted > tmp_b->index_sorted)
-						tmp_b->target_position = tmp_a->position;
-					else
-						tmp_a = tmp_a->next;
-				}
-			}
-			else if (tmp_b->index_sorted < index_sorted_head
-				&& tmp_b->index_sorted > index_sorted_last)
-				tmp_b->target_position = 1;
-			else if (tmp_b->index_sorted > index_sorted_head
-				&& tmp_b->index_sorted > index_sorted_last
-				&& index_sorted_head != index_sorted_min_value)
-			{
-				while (tmp_b->target_position == 0
-					&& tmp_a->position < position_min_value)
-				{
-					if (tmp_a->index_sorted < tmp_b->index_sorted)
-						tmp_a = tmp_a->next;
-					else
-						tmp_b->target_position = tmp_a->position;
-				}
-			}
-			else if (index_sorted_head == index_sorted_min_value)
-			{
-				while (tmp_b->index_sorted > tmp_a->index_sorted && tmp_a->next)
-					tmp_a = tmp_a->next;
-				tmp_b->target_position = tmp_a->position;
-			}
+			set_target_positions(tmp_a, tmp_b, position_min_value,
+                index_sorted_min_value);
 		}
 		tmp_b = tmp_b->next;
 	}
@@ -130,28 +91,13 @@ void	calculate_total_cost(t_node **stack_b)
 	int		cost_a;
 	int		cost_b;
 
-	tmp = malloc(sizeof(t_node));
-	if (!tmp)
-		return ;
 	tmp = *stack_b;
 	while (tmp)
 	{
 		cost_a = tmp->cost_a;
 		cost_b = tmp->cost_b;
-		if (cost_a > 0 && cost_b > 0)
-		{
-			if (cost_a > cost_b)
-				tmp->total_cost = cost_a + 1;
-			else
-				tmp->total_cost = cost_b + 1;
-		}
-		else if (cost_a < 0 && cost_b < 0)
-		{
-			if (cost_a < cost_b)
-				tmp->total_cost = (cost_a - 1) * -1;
-			else
-				tmp->total_cost = (cost_b - 1) * -1;
-		}
+		if ((cost_a > 0 && cost_b > 0) || (cost_a < 0 && cost_b < 0))
+			select_cost(tmp, cost_a, cost_b);
 		else
 		{
 			if (cost_a < 0)
@@ -171,9 +117,6 @@ int	select_index_minimum_cost(t_node **stack_b)
 	int		index_sorted;
 
 	minimun_cost = 50000;
-	tmp = malloc(sizeof(t_node));
-	if (!tmp)
-		return (0);
 	tmp = *stack_b;
 	while (tmp)
 	{

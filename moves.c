@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 21:38:51 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/19 01:03:05 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/24 20:08:43 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	move_min_value_up(t_node **stack, int position_min_value)
 			rra(stack);
 			moves--;
 		}
-	} else if (position_min_value <= (size / 2))
+	}
+	else if (position_min_value <= (size / 2))
 	{
 		moves = position_min_value - 1;
 		while (moves > 0)
@@ -39,29 +40,16 @@ void	move_min_value_up(t_node **stack, int position_min_value)
 	update_position(stack);
 }
 
-void	first_moves(t_node **stack_a, t_node **stack_b, int max_length_array_position, int *subsequence, int size)
+void	first_moves(t_node **stack_a, t_node **stack_b,
+			int max_length_array_position, int *subsequence)
 {
-
-	int 		position_target;
+	int			position_target;
 	t_node		*tmp;
-	//t_node		*last;
+	int			size;
 
-	tmp = malloc(sizeof(t_node));
-	if (!tmp)
-	{
-		return;
-	}
-	//last = malloc(sizeof(t_node));
-	//if (!last)
-	//{
-	//	return;
-	//}
+	size = len_stack(*stack_a);
 	tmp = *stack_a;
-	while (tmp->next)
-	{
-		tmp = tmp->next;
-	}
-	//last = tmp;
+	tmp = move_pointer_to_last(tmp);
 	position_target = max_length_array_position;
 	while (size > 0)
 	{
@@ -70,84 +58,39 @@ void	first_moves(t_node **stack_a, t_node **stack_b, int max_length_array_positi
 			tmp = tmp->prev;
 			rra(stack_a);
 			pb(stack_a, stack_b);
-			//last = tmp;
-			size--;
 		}
 		else if (tmp->position == position_target)
 		{
 			tmp = tmp->prev;
 			rra(stack_a);
-			//last = tmp;
 			position_target = subsequence[position_target -1] + 1;
-			size--;
 		}
+			size--;
 	}
-	update_position(stack_a);
-	update_position(stack_b);
+	update_positions(stack_a, stack_b);
 }
 
-void	move_minimum_cost(t_node **stack_a, t_node **stack_b, int index_sorted_minimum_cost)
+void	move_minimum_cost(t_node **stack_a, t_node **stack_b,
+			int index_sorted_minimum_cost)
 {
-	//t_node  *tmp_a;
-    t_node  *tmp_b;
-	int		cost_a;
-	int		cost_b;
+	t_node	*tmp_b;
 
-    //tmp_a = malloc(sizeof(t_node));
-    tmp_b = malloc(sizeof(t_node));
-    if(/*!tmp_a || */!tmp_b)
-        return;
-    //tmp_a = *stack_a;
 	tmp_b = *stack_b;
 	while (tmp_b && tmp_b->index_sorted != index_sorted_minimum_cost)
 		tmp_b = tmp_b->next;
-	cost_a = tmp_b->cost_a;
-	cost_b = tmp_b->cost_b;
-	while(cost_a != 0 || cost_b != 0)
+	while (tmp_b->cost_a != 0 || tmp_b->cost_b != 0)
 	{
-		if (cost_a > 0 && cost_b > 0)
-		{
-			rr(stack_a, stack_b);
-			cost_a -= 1;
-			cost_b -= 1;
-		} else if (cost_a < 0 && cost_b < 0)
-		{
-			rrr(stack_a, stack_b);
-			cost_a += 1;
-			cost_b += 1;
-		} else if (cost_a > 0 && cost_b < 0)
-		{
-			ra(stack_a);
-			rrb(stack_b);
-			cost_a -= 1;
-			cost_b += 1;
-		} else if (cost_a < 0 && cost_b > 0)
-		{
-			rb(stack_b);
-			rra(stack_a);
-			cost_a += 1;
-			cost_b -= 1;
-		} else if (cost_a > 0)
-		{
-			ra(stack_a);
-			cost_a -= 1;
-		} else if (cost_a < 0)
-		{
-			rra(stack_a);
-			cost_a += 1;
-		} else if (cost_b > 0)
-		{
-			rb(stack_b);
-			cost_b -= 1;
-		} else if (cost_b < 0)
-		{
-			rrb(stack_b);
-			cost_b += 1;
-		} 
+		if ((tmp_b->cost_a > 0 && tmp_b->cost_b > 0)
+			|| (tmp_b->cost_a < 0 && tmp_b->cost_b < 0))
+			double_similar_rotates_moves(stack_a, stack_b, tmp_b);
+		else if ((tmp_b->cost_a > 0 && tmp_b->cost_b < 0)
+			|| (tmp_b->cost_a < 0 && tmp_b->cost_b > 0))
+			double_different_rotates_moves(stack_a, stack_b, tmp_b);
+		else
+			single_rotates_moves(stack_a, stack_b, tmp_b);
 	}
 	pa(stack_a, stack_b);
-	update_position(stack_a);
-	update_position(stack_b);
+	update_positions(stack_a, stack_b);
 }
 
 void	final_moves(t_node **stack_a, t_node **stack_b, int size_a, int size_b)

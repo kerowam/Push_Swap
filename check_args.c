@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 20:48:26 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/15 18:40:16 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/24 01:16:06 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,13 @@ void	check_numbers(int argc, char **argv)
 		j = 0;
 		while (argv[i][j])
 		{
-			//printf("argv[%d][%d]: %s\n", i, j, argv[i]);
 			if ((argv[i][j] == '-' && !(ft_isdigit(argv[i][j + 1])))
-				|| (argv[i][j] == '+' && !(ft_isdigit(argv[i][j + 1])))
-				/*|| (argv[i][j] != ' ' && !(ft_isdigit(argv[i][j])))*/)
+				|| (argv[i][j] == '+' && !(ft_isdigit(argv[i][j + 1]))))
 			{
 				printf("Error1: %c%c\n", argv[i][j], argv[i][j + 1]);
 				put_error();
 			}
-			else if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN) 
+			else if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN)
 			{
 				printf("Error2: %d\n", ft_atoi(argv[i]));
 				put_error();

@@ -6,7 +6,7 @@
 #    By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/06 23:21:44 by gfredes-          #+#    #+#              #
-#    Updated: 2023/08/09 14:20:26 by gfredes-         ###   ########.fr        #
+#    Updated: 2023/08/26 14:01:32 by gfredes-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,13 @@ SRC = 	push_swap_operations.c \
 				check_sort.c \
 				lis.c \
 				moves.c \
-				calculate_costs.c
+				calculate_costs.c \
+				update_positions.c \
+				move_pointers.c \
+				moves_utils.c \
+				init_utils.c \
+				calculate_costs_utils.c \
+				calculate_costs_utils2.c
 
 CC = gcc -g
 

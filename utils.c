@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 20:50:07 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/18 20:04:47 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/24 21:06:08 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,6 @@ void	put_error(void)
 {
 	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
-}
-
-void	print_stack_value(t_node *stack)
-{
-	t_node	*tmp;
-
-	tmp = stack;
-	printf("Stack:\n");
-	while (tmp)
-	{
-		printf("stack_value: %d\n", tmp->value);
-		printf("stack_position: %d\n", tmp->position);
-		printf("index_sorted: %d\n", tmp->index_sorted);
-		printf("stack->cost_a: %d\n", tmp->cost_a);
-		printf("stack->cost_b: %d\n", tmp->cost_b);
-		printf("total_cost: %d\n", tmp->total_cost);
-		printf("target_position: %d\n\n", tmp->target_position);
-		tmp = tmp->next;
-	}
 }
 
 void	print_stack_position(t_node *stack)
@@ -66,20 +47,6 @@ int	len_stack(t_node *stack)
 	return (i);
 }
 
-void	print_array(int *array, int size)
-{
-	int	i;
-
-	i = 0;
-	while (i < size)
-	{
-		printf("%d\n", array[i]);
-		i++;
-	}
-	printf("\n");
-	return ;
-}
-
 int	ft_atoi_long(const char *str)
 {
 	int		i;
@@ -107,4 +74,38 @@ int	ft_atoi_long(const char *str)
 	check_int(long_nb);
 	nb = long_nb;
 	return (nb);
+}
+
+//ONLY TO CHECK. REMOVE!!!
+void	print_stack_value(t_node *stack)
+{
+	t_node	*tmp;
+
+	tmp = stack;
+	printf("Stack:\n");
+	while (tmp)
+	{
+		printf("stack_value: %d\n", tmp->value);
+		printf("stack_position: %d\n", tmp->position);
+		printf("index_sorted: %d\n", tmp->index_sorted);
+		printf("stack->cost_a: %d\n", tmp->cost_a);
+		printf("stack->cost_b: %d\n", tmp->cost_b);
+		printf("total_cost: %d\n", tmp->total_cost);
+		printf("target_position: %d\n\n", tmp->target_position);
+		tmp = tmp->next;
+	}
+}
+
+void	print_array(int *array, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		printf("%d\n", array[i]);
+		i++;
+	}
+	printf("\n");
+	return ;
 }
