@@ -6,7 +6,7 @@
 #    By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/06 23:21:44 by gfredes-          #+#    #+#              #
-#    Updated: 2023/08/26 21:41:33 by gfredes-         ###   ########.fr        #
+#    Updated: 2023/08/27 23:04:10 by gfredes-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ SRC = 	push_operations.c \
 		moves_utils.c \
 		init_utils.c \
 		calculate_costs_utils.c \
-		calculate_costs_utils2.c
+		calculate_costs_utils2.c \
 
 CC = gcc -g
 
