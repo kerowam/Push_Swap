@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 21:14:08 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/24 21:41:59 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/27 17:55:46 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ t_node	*create_stack_one_arg(char **argv, t_node *stack, int i)
 		i++;
 		j++;
 	}
+	free(char_numbers);
 	return (stack);
 }

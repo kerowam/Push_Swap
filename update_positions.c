@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 00:41:37 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/24 00:44:54 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/27 01:23:00 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	update_position(t_node **head)
 	int		i;
 	t_node	*tmp;
 
-	tmp = malloc(sizeof(t_node));
 	tmp = *head;
 	i = 1;
 	while (tmp)
@@ -26,6 +25,7 @@ void	update_position(t_node **head)
 		tmp = tmp->next;
 		i++;
 	}
+	free(tmp);
 }
 
 void	update_positions(t_node **stack_a, t_node **stack_b)

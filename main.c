@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:33 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/27 00:54:10 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/27 16:23:08 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /*void check_leaks(void)
 {
-	system("leaks a.out");
+	system("leaks push_swap");
 }*/
 
 int	main(int argc, char **argv)
@@ -34,6 +34,9 @@ int	main(int argc, char **argv)
 	lis(stack_a, stack_b, size_a, size_b);
 	while (stack_a->prev)
 		stack_a = stack_a->prev;
-	//atexit(check_leaks);
+	free_tmp (stack_a);
+	free_tmp (stack_b);
 	return (0);
 }
+
+	//atexit(check_leaks);

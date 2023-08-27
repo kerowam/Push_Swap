@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 12:44:40 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/27 00:50:24 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/27 14:03:20 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@ void	calculate_cost_b(t_node **stack_b, int size_b)
 {
 	t_node	*tmp;
 
-	tmp = malloc(sizeof(t_node));
-	if (!tmp)
-		return ;
 	tmp = *stack_b;
 	while (tmp)
 	{

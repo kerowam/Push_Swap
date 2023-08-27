@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:29 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/27 00:44:36 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/27 14:06:05 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,6 @@ t_node	*delete_up(t_node **stack)
 
 	while ((*stack)->prev)
 		*stack = (*stack)->prev;
-	tmp = malloc(sizeof(t_node));
-	if (!tmp)
-		return (NULL);
 	tmp = *stack;
 	if ((*stack)->next)
 	{
@@ -81,9 +78,6 @@ t_node	*delete_down(t_node **stack)
 
 	while ((*stack)->next)
 		*stack = (*stack)->next;
-	tmp = malloc(sizeof(t_node));
-	if (!*stack)
-		return (NULL);
 	tmp = *stack;
 	*stack = (*stack)->prev;
 	(*stack)->next = NULL;

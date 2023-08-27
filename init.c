@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 23:31:01 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/27 00:47:54 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/27 15:40:16 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ static t_node	*create_stack(int argc, char **argv)
 	t_node	*stack;
 	int		i;
 	int		j;
-	char	**char_numbers;
 
 	i = 1;
 	stack = NULL;
@@ -119,7 +118,6 @@ static void	get_index_sorted(t_node *stack)
 t_node	*init_stack(int argc, char **argv)
 {
 	t_node	*stack;
-	t_node	*tmp;
 
 	stack = NULL;
 	check_args(argc, argv);

@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 20:50:07 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/27 00:42:30 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/27 16:21:00 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,24 @@ int	ft_atoi_long(const char *str)
 	check_int(long_nb);
 	nb = long_nb;
 	return (nb);
+}
+
+int	*check_malloc(int *pointer)
+{
+	if (!pointer)
+		return (NULL);
+}
+
+void	free_tmp(t_node *stack)
+{
+	t_node	*tmp;
+
+	while (stack)
+	{
+		tmp = stack;
+		stack = stack->next;
+		free(tmp);
+	}
 }
 
 //ONLY TO CHECK. REMOVE!!!
