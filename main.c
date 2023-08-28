@@ -6,17 +6,12 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:33 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/27 22:25:28 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/28 15:20:12 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
-
-/*void check_leaks(void)
-{
-	system("leaks push_swap");
-}*/
 
 int	main(int argc, char **argv)
 {
@@ -31,12 +26,13 @@ int	main(int argc, char **argv)
 		return (0);
 	stack_a = init_stack(argc, argv);
 	size_a = len_stack(stack_a);
-	lis(stack_a, stack_b, size_a, size_b);
+	if (size_a <= 3)
+		sort_three(&stack_a, size_a);
+	else
+		lis(stack_a, stack_b, size_a, size_b);
 	while (stack_a->prev)
 		stack_a = stack_a->prev;
 	free_tmp (stack_a);
 	free_tmp (stack_b);
 	return (0);
 }
-
-	//atexit(check_leaks);
