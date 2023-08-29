@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 12:44:40 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/27 14:03:20 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/29 16:42:32 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	calculate_target_position(t_node **stack_a,
 		else if (tmp_b->index_sorted > index_sorted_min_value)
 		{
 			set_target_positions(tmp_a, tmp_b, position_min_value,
-                    index_sorted_min_value);
+				index_sorted_min_value);
 		}
 		tmp_b = tmp_b->next;
 	}

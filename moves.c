@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 21:38:51 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/27 13:12:21 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/29 17:01:39 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	move_min_value_up(t_node **stack, int position_min_value)
 	int	moves;
 
 	size = len_stack(*stack);
-
 	if (position_min_value > (size / 2))
 	{
 		moves = size - position_min_value + 1;

@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 23:31:01 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/27 22:09:05 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/29 16:43:07 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	create_node(t_node **last, int value, int i)
 		insert_up_create(last, value);
 		return ;
 	}
-
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
 		return ;

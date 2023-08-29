@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 19:28:35 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/29 12:57:03 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/29 18:51:13 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	sort_three_or_less(t_node **stack_a, size_t size)
 	{
 		sort_three(stack_a);
 	}
+	update_position(stack_a);
 	return ;
 }
-
 
 void	sort_three(t_node **stack_a)
 {
@@ -85,10 +85,36 @@ void	reverse_sort_three(t_node **stack_a, size_t size)
 
 void	sort_five_bubble(t_node **stack_a, size_t size)
 {
+	int	min_value;
+
+	min_value = get_min_value(stack_a);
 	while (!check_is_sorted(*stack_a))
 	{
-		if ((*stack_a)->value > (*stack_a)->next->value)
+		if ((*stack_a)->value > (*stack_a)->next->value
+			&& (*stack_a)->next->value != min_value)
 			sa(stack_a);
 		rra(stack_a);
 	}
+}
+
+void	sort_four(t_node **stack_a, t_node **stack_b, size_t size)
+{
+	if (size == 4 && check_is_sorted(*stack_a))
+		return ;
+	pb(stack_a, stack_b);
+	sort_three(stack_a);
+	update_positions(stack_a, stack_b);
+	if (size == 4)
+		final_moves(stack_a, stack_b, 3, 1);
+	else if (size == 5)
+		final_moves(stack_a, stack_b, 3, 2);
+	update_positions(stack_a, stack_b);
+}
+
+void	sort_five(t_node **stack_a, t_node **stack_b, size_t size)
+{
+	if (check_is_sorted(*stack_a))
+		return ;
+	pb(stack_a, stack_b);
+	sort_four(stack_a, stack_b, size);
 }
