@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:21 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/29 12:35:58 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/29 12:56:10 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,5 +110,6 @@ void		select_cost(t_node *tmp, int cost_a, int cost_b);
 void		lis(t_node *stack_a, t_node *stack_b, int size_a, int size_b);
 int			*check_malloc(int *pointer);
 void		free_tmp(t_node *stack);
+void		sort_five_bubble(t_node **stack_a, size_t size);
 
 #endif

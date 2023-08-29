@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 19:28:35 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/29 12:38:53 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/29 12:57:03 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,15 @@ void	reverse_sort_three(t_node **stack_a, size_t size)
 		else if ((*stack_a)->value < (*stack_a)->next->next->value)
 			ra(stack_a);
 		return ;
+	}
+}
+
+void	sort_five_bubble(t_node **stack_a, size_t size)
+{
+	while (!check_is_sorted(*stack_a))
+	{
+		if ((*stack_a)->value > (*stack_a)->next->value)
+			sa(stack_a);
+		rra(stack_a);
 	}
 }
