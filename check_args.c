@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 20:48:26 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/26 22:09:35 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/29 12:23:08 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	check_numbers(int argc, char **argv)
 				|| (argv[i][j] == '+' && !(ft_isdigit(argv[i][j + 1]))))
 				put_error();
 			else if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN)
+				put_error();
+			else if (!ft_isdigit(argv[i][j]) && argv[i][j] != '-' && argv[i][j] && argv[i][j] != '+' && argv[i][j] != ' ')
 				put_error();
 			j++;
 		}

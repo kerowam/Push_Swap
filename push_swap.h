@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:21 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/28 00:55:47 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/29 12:35:58 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ void		rrb(t_node **stack_b);
 void		rrr(t_node **stack_a, t_node **stack_b);
 void		put_error(void);
 void		print_stack_value(t_node *stack);
-void		sort_three(t_node **stack_a, size_t size);
+void		sort_three_or_less(t_node **stack_a, size_t size);
+void		sort_three(t_node **stack_a);
 t_node		*init_stack(int argc, char **argv);
 void		check_numbers(int argc, char **argv);
 void		check_duplicates(t_node *stack);

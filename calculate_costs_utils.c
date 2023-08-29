@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 22:02:09 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/26 13:35:11 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/29 12:20:33 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 int	get_index_sortd_min_val(t_node *tmp, int position_min_value)
 {
 	int		index_sorted_min_value;
-	t_node	*tmp2;
 
-	tmp2 = tmp;
 	while (tmp->next)
 	{
 		if (tmp->position == position_min_value)
@@ -54,6 +52,8 @@ void	set_target_position_case2(t_node *tmp_a, t_node *tmp_b,
 		else
 			tmp_b->target_position = tmp_a->position;
 	}
+	if (tmp_b->target_position == 0)
+		tmp_b->target_position = tmp_a->position;
 }
 
 void	set_target_position_case3(t_node *tmp_a, t_node *tmp_b)
@@ -84,5 +84,10 @@ void	set_target_positions(t_node *tmp_a, t_node *tmp_b,
 		&& index_sorted_head != index_sorted_min_value)
 		set_target_position_case2(tmp_a, tmp_b, position_min_value);
 	else if (index_sorted_head == index_sorted_min_value)
-		set_target_position_case3(tmp_a, tmp_b);
+	{
+		if (tmp_b->index_sorted > index_sorted_last)
+			tmp_b->target_position = 1;
+		else
+			set_target_position_case3(tmp_a, tmp_b);
+	}	
 }
