@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 20:48:26 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/29 16:42:48 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/30 00:31:19 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ void	check_numbers(int argc, char **argv)
 				put_error();
 			else if (!ft_isdigit(argv[i][j]) && argv[i][j] != '-' && argv[i][j]
 				&& argv[i][j] != '+' && argv[i][j] != ' ')
+				put_error();
+			else if (ft_isdigit(argv[i][j]) && (argv[i][j + 1] == '+'
+				|| argv[i][j + 1] == '-') && ft_isdigit(argv[i][j + 2]))
 				put_error();
 			j++;
 		}
