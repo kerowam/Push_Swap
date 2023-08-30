@@ -96,6 +96,8 @@ void	lis(t_node *stack_a, t_node *stack_b, int size_a, int size_b)
 	int		*array;
 	int		max_length_array_position;
 
+	if (check_is_sorted(stack_a))
+		return ;
 	array = get_array(stack_a, size_a);
 	length_array = get_length_array(stack_a, size_a);
 	max_length_array_position = get_max_length_array_position(length_array,

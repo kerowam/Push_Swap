@@ -50,7 +50,7 @@ void	calculate_target_position(t_node **stack_a,
 	tmp_b = *stack_b;
 	index_sorted_head = tmp_a->index_sorted;
 	index_sorted_min_value = get_index_sortd_min_val(tmp_a, position_min_value);
-    tmp_a = move_pointer_to_last(tmp_a);
+	tmp_a = move_pointer_to_last(tmp_a);
 	index_sorted_last = tmp_a->index_sorted;
 	while (tmp_b)
 	{

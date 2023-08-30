@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:45:44 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/09 16:35:22 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/30 18:57:19 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -484,5 +484,9 @@ int				ft_printf(char const *str, ...);
  * En caso de fallo o si la lectura termina: NULL
  */
 char			*get_next_line(int fd);
-
+char			*ft_strjoin_gnl(char *s1, char *s2);
+char			*ft_strdup_gnl(char *s1);
+char			*make_line(char *stack);
+char			*update_stack(char *stack);
+char			*ft_reader(int fd, char *stack);
 #endif

@@ -16,7 +16,6 @@ void	ra(t_node **stack_a)
 {
 	if (!*stack_a || !(*stack_a)->next)
 		return ;
-
 	insert_down(stack_a, delete_up(stack_a));
 	write(1, "ra\n", 3);
 	return ;
@@ -26,7 +25,6 @@ void	rb(t_node **stack_b)
 {
 	if (!*stack_b || !(*stack_b)->next)
 		return ;
-
 	insert_down(stack_b, delete_up(stack_b));
 	write(1, "rb\n", 3);
 	return ;

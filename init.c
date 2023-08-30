@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 23:31:01 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/29 16:43:07 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/30 19:14:38 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,8 @@ t_node	*init_stack(int argc, char **argv)
 	t_node	*stack;
 
 	stack = NULL;
+	if (argv[1][0] == '\0')
+		put_error();
 	check_args(argc, argv);
 	stack = create_stack(argc, argv);
 	check_duplicates(stack);

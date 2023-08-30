@@ -83,7 +83,6 @@ void	reverse_sort_three(t_node **stack_a, size_t size)
 	}
 }
 
-
 void	sort_four(t_node **stack_a, t_node **stack_b, size_t size)
 {
 	if (size == 4 && check_is_sorted(*stack_a))
@@ -104,18 +103,4 @@ void	sort_five(t_node **stack_a, t_node **stack_b, size_t size)
 		return ;
 	pb(stack_a, stack_b);
 	sort_four(stack_a, stack_b, size);
-}
-
-void	sort_five_bubble(t_node **stack_a, size_t size)
-{
-	int	min_value;
-
-	min_value = get_min_value(stack_a);
-	while (!check_is_sorted(*stack_a))
-	{
-		if ((*stack_a)->value > (*stack_a)->next->value
-			&& (*stack_a)->next->value != min_value)
-			sa(stack_a);
-		rra(stack_a);
-	}
 }

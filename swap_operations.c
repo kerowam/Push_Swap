@@ -15,7 +15,7 @@
 void	sa(t_node **stack_a)
 {
 	int	tmp;
-	int tmp_index_sorted;
+	int	tmp_index_sorted;
 
 	if (!*stack_a || !(*stack_a)->next)
 		return ;
@@ -32,7 +32,7 @@ void	sa(t_node **stack_a)
 void	sb(t_node **stack_b)
 {
 	int	tmp;
-	int tmp_index_sorted;
+	int	tmp_index_sorted;
 
 	if (!*stack_b || !(*stack_b)->next)
 		return ;
