@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   update_positions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 22:14:01 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/30 18:57:07 by gfredes-         ###   ########.fr       */
+/*   Created: 2023/08/24 00:41:37 by gfredes-          #+#    #+#             */
+/*   Updated: 2023/08/27 01:23:00 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-char	*get_next_line(int fd)
+void	update_position(t_node **head)
 {
-	static char	*stack[4096];
-	char		*line;
+	int		i;
+	t_node	*tmp;
 
-	line = NULL;
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	tmp = *head;
+	i = 1;
+	while (tmp)
 	{
-		if (stack[fd])
-		{
-			free(stack[fd]);
-			stack[fd] = NULL;
-		}
-		return (NULL);
+		tmp->position = i;
+		tmp = tmp->next;
+		i++;
 	}
-	stack[fd] = ft_reader(fd, stack[fd]);
-	if (!stack[fd])
-		return (NULL);
-	line = make_line(stack[fd]);
-	stack[fd] = update_stack(stack[fd]);
-	return (line);
+	free(tmp);
+}
+
+void	update_positions(t_node **stack_a, t_node **stack_b)
+{
+	update_position(stack_a);
+	update_position(stack_b);
 }

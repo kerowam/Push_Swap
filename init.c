@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 23:31:01 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/16 00:30:24 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/30 19:14:38 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,11 @@ static void	insert_up_create(t_node **head, int value)
 
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
-	{
-		printf("Error: malloc failed\n");
 		return ;
-	}
+	new_node->value = value;
+	new_node->position = 1;
 	if (!*head)
 	{
-		new_node->value = value;
-		new_node->position = 1;
 		new_node->next = NULL;
 		new_node->prev = NULL;
 		*head = new_node;
@@ -33,8 +30,6 @@ static void	insert_up_create(t_node **head, int value)
 	}
 	else
 	{
-		new_node->value = value;
-		new_node->position = 1;
 		new_node->next = *head;
 		new_node->prev = NULL;
 		(*head)->prev = new_node;
@@ -49,17 +44,12 @@ void	create_node(t_node **last, int value, int i)
 
 	if (!*last)
 	{
-		printf("check\n");
 		insert_up_create(last, value);
 		return ;
 	}
-
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
-	{
-		printf("Error: malloc failed\n");
 		return ;
-	}
 	new_node->value = value;
 	new_node->position = i;
 	new_node->next = NULL;
@@ -74,33 +64,25 @@ static t_node	*create_stack(int argc, char **argv)
 {
 	t_node	*stack;
 	int		i;
-	char	**char_numbers;
+	int		j;
 
 	i = 1;
 	stack = NULL;
 	if (argc == 2)
-	{
-		char_numbers = ft_split(argv[1], ' ');
-		while (char_numbers[i])
-		{	
-			printf("check_create_stack\n");
-			create_node(&stack, ft_atoi_long(char_numbers[i]), i);
-			printf("creating_stack->value: %d\n", stack->value);
-			printf("creating_stack->position: %d\n", stack->position);
-			i++;
-		}
-	}
+		stack = create_stack_one_arg(argv, stack, i);
 	else if (argc > 2)
 	{
 		while (i < argc)
 		{
 			create_node(&stack, ft_atoi_long(argv[i]), i);
-			printf("creating_stack->value: %d\n", stack->value);
+			if (stack->next)
+				stack = stack->next;
 			stack->position = i;
-			printf("creating_stack->position: %d\n", stack->position);
 			i++;
 		}
 	}
+	while (stack->prev != NULL)
+		stack = stack->prev;
 	return (stack);
 }
 
@@ -113,21 +95,13 @@ static void	get_index_sorted(t_node *stack)
 
 	i = 0;
 	size = len_stack(stack);
-	printf("size: %d\n", size);
-	printf("\n");
 	array = get_array(stack, size);
-	print_array(array, size);
-	printf("\n");
 	sorted_array = sort_array(array, size);
-	print_array(array, size);
-	printf("\n");
 	while (i < size)
 	{
 		if (sorted_array[i] == stack->value)
 		{
 			stack->index_sorted = i + 1;
-			//printf("%d stack->index_sorted: %d\n", i, stack->index_sorted);
-			//printf("stack->value: %d\n", stack->value);
 			i++;
 			while (stack->prev)
 				stack = stack->prev;
@@ -137,7 +111,6 @@ static void	get_index_sorted(t_node *stack)
 			stack = stack->next;
 		}
 	}
-	//printf("check8\n");
 	free(array);
 }
 
@@ -146,21 +119,15 @@ t_node	*init_stack(int argc, char **argv)
 	t_node	*stack;
 
 	stack = NULL;
+	if (argv[1][0] == '\0')
+		put_error();
 	check_args(argc, argv);
-	//printf("check1\n");
 	stack = create_stack(argc, argv);
-	print_stack_value(stack);
-	//printf("check2\n");
 	check_duplicates(stack);
-	//printf("check3\n");
-	get_min_value(stack);
-	//printf("check4\n");
+	get_min_value(&stack);
 	check_is_sorted(stack);
-	//printf("check5\n");
 	check_is_reverse_sorted(stack);
-	//printf("check6\n");
 	get_index_sorted(stack);
-	//printf("check7\n");
 	while (stack->prev)
 		stack = stack->prev;
 	return (stack);

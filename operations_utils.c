@@ -6,76 +6,81 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 23:20:29 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/14 19:34:23 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/27 14:06:05 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	insert_up(t_node **head, t_node *node)
+void	insert_up(t_node **stack, t_node *node)
 {
-
-	if (!*head)
+	if (!*stack)
 	{
-		*head = node;
+		*stack = node;
 		node->next = NULL;
 		node->prev = NULL;
 		return ;
 	}
 	else
 	{
-		node->next = *head;
+		while ((*stack)->prev)
+			*stack = (*stack)->prev;
+		node->next = *stack;
 		node->prev = NULL;
-		(*head)->prev = node;
-		*head = node;
+		(*stack)->prev = node;
+		*stack = node;
 	}
 }
 
-t_node	*delete_up(t_node **head)
+t_node	*delete_up(t_node **stack)
 {
 	t_node	*tmp;
 
-	if (!*head)
+	while ((*stack)->prev)
+		*stack = (*stack)->prev;
+	tmp = *stack;
+	if ((*stack)->next)
 	{
-		printf("Error: empty stack\n");
-		return (NULL);
+		*stack = (*stack)->next;
+		(*stack)->prev = NULL;
 	}
-	tmp = *head;
-	*head = (*head)->next;
+	else
+		*stack = NULL;
+	tmp->next = NULL;
+	tmp->prev = NULL;
 	return (tmp);
 }
 
-void	insert_down(t_node **last, t_node *node)
+void	insert_down(t_node **stack, t_node *node)
 {
-	if (!*last)
+	while ((*stack)->next)
 	{
-		insert_up(last, node);
+		*stack = (*stack)->next;
+	}
+	if (!stack)
+	{
+		insert_up(stack, node);
 		return ;
 	}
 	else
 	{
-		(*last)->next = node;
-		node->prev = *last;
+		(*stack)->next = node;
+		node->prev = *stack;
 		node->next = NULL;
-		*last = node;
 	}
+	while ((*stack)->prev)
+		*stack = (*stack)->prev;
 }
 
-t_node	*delete_down(t_node **last)
+t_node	*delete_down(t_node **stack)
 {
 	t_node	*tmp;
 
-	if (!*last)
-	{
-		printf("Error: empty stack\n");
-		return (NULL);
-	}
-	if (!(*last)->next)
-	{
-		return (delete_up(last));
-	}
-	tmp = *last;
-	*last = (*last)->prev;
-	(*last)->next = NULL;
+	while ((*stack)->next)
+		*stack = (*stack)->next;
+	tmp = *stack;
+	*stack = (*stack)->prev;
+	(*stack)->next = NULL;
+	tmp->prev = NULL;
 	return (tmp);
 }	

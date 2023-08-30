@@ -25,7 +25,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 		return (ft_strdup(""));
 	while (s1[index_i] != '\0' && ft_strchr((char *)set, s1[index_i]))
 		index_i++;
-	while (index_f >= 0 && ft_strchr((char *)set, s1[index_f]))
+	while (ft_strchr((char *)set, s1[index_f]))
 		index_f--;
 	return (ft_substr(s1, index_i, (index_f - index_i + 1)));
 }

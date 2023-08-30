@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 20:48:26 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/14 19:53:58 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/30 00:31:19 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,17 @@ void	check_numbers(int argc, char **argv)
 		j = 0;
 		while (argv[i][j])
 		{
-			//printf("argv[%d][%d]: %s\n", i, j, argv[i]);
 			if ((argv[i][j] == '-' && !(ft_isdigit(argv[i][j + 1])))
-				|| (argv[i][j] == '+' && !(ft_isdigit(argv[i][j + 1])))
-				|| (argv[i][j] != ' ' && !(ft_isdigit(argv[i][j]))))
-			{
-				//printf("Error1: %c\n", argv[i][j]);
+				|| (argv[i][j] == '+' && !(ft_isdigit(argv[i][j + 1]))))
 				put_error();
-			}
-			else if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN) 
-			{
-				//printf("Error2: %d\n", ft_atoi(argv[i]));
+			else if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN)
 				put_error();
-			}
+			else if (!ft_isdigit(argv[i][j]) && argv[i][j] != '-' && argv[i][j]
+				&& argv[i][j] != '+' && argv[i][j] != ' ')
+				put_error();
+			else if (ft_isdigit(argv[i][j]) && (argv[i][j + 1] == '+'
+				|| argv[i][j + 1] == '-') && ft_isdigit(argv[i][j + 2]))
+				put_error();
 			j++;
 		}
 		i++;
@@ -65,7 +63,7 @@ void	check_args(int argc, char **argv)
 {
 	if (argc < 2)
 	{
-		put_error();
+		return ;
 	}
 	else
 	{

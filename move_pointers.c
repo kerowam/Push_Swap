@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   move_pointers.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 22:14:01 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/30 18:57:07 by gfredes-         ###   ########.fr       */
+/*   Created: 2023/08/24 00:48:04 by gfredes-          #+#    #+#             */
+/*   Updated: 2023/08/24 00:54:48 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-char	*get_next_line(int fd)
+t_node	*move_pointer_to_last(t_node *pointer)
 {
-	static char	*stack[4096];
-	char		*line;
+	while (pointer->next)
+		pointer = pointer->next;
+	return (pointer);
+}
 
-	line = NULL;
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
-	{
-		if (stack[fd])
-		{
-			free(stack[fd]);
-			stack[fd] = NULL;
-		}
-		return (NULL);
-	}
-	stack[fd] = ft_reader(fd, stack[fd]);
-	if (!stack[fd])
-		return (NULL);
-	line = make_line(stack[fd]);
-	stack[fd] = update_stack(stack[fd]);
-	return (line);
+t_node	*move_pointer_to_head(t_node *pointer)
+{
+	while (pointer->prev)
+		pointer = pointer->prev;
+	return (pointer);
 }

@@ -6,7 +6,7 @@
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 20:54:46 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/06/15 22:47:37 by gfredes-         ###   ########.fr       */
+/*   Updated: 2023/08/29 12:37:36 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	rra(t_node **stack_a)
 {
 	if (!*stack_a || !(*stack_a)->next)
 		return ;
-
 	insert_up(stack_a, delete_down(stack_a));
 	write(1, "rra\n", 4);
 	return ;
@@ -26,16 +25,31 @@ void	rrb(t_node **stack_b)
 {
 	if (!*stack_b || !(*stack_b)->next)
 		return ;
-
 	insert_up(stack_b, delete_down(stack_b));
 	write(1, "rrb\n", 4);
 	return ;
 }
 
+static void	rra_unwrite(t_node **stack_a)
+{
+	if (!*stack_a || !(*stack_a)->next)
+		return ;
+	insert_up(stack_a, delete_down(stack_a));
+	return ;
+}
+
+static void	rrb_unwrite(t_node **stack_b)
+{
+	if (!*stack_b || !(*stack_b)->next)
+		return ;
+	insert_up(stack_b, delete_down(stack_b));
+	return ;
+}
+
 void	rrr(t_node **stack_a, t_node **stack_b)
 {
-	rra(stack_a);
-	rrb(stack_b);
+	rra_unwrite(stack_a);
+	rrb_unwrite(stack_b);
 	write(1, "rrr\n", 4);
 	return ;
 }

@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   calculate_costs_utils2.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfredes- <gfredes-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 22:14:01 by gfredes-          #+#    #+#             */
-/*   Updated: 2023/08/30 18:57:07 by gfredes-         ###   ########.fr       */
+/*   Created: 2023/08/26 14:01:07 by gfredes-          #+#    #+#             */
+/*   Updated: 2023/08/26 14:06:32 by gfredes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-char	*get_next_line(int fd)
+void	select_cost(t_node *tmp, int cost_a, int cost_b)
 {
-	static char	*stack[4096];
-	char		*line;
-
-	line = NULL;
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (cost_a > 0 && cost_b > 0)
 	{
-		if (stack[fd])
-		{
-			free(stack[fd]);
-			stack[fd] = NULL;
-		}
-		return (NULL);
+		if (cost_a > cost_b)
+			tmp->total_cost = cost_a + 1;
+		else
+			tmp->total_cost = cost_b + 1;
 	}
-	stack[fd] = ft_reader(fd, stack[fd]);
-	if (!stack[fd])
-		return (NULL);
-	line = make_line(stack[fd]);
-	stack[fd] = update_stack(stack[fd]);
-	return (line);
+	else if (cost_a < 0 && cost_b < 0)
+	{
+		if (cost_a < cost_b)
+			tmp->total_cost = (cost_a - 1) * -1;
+		else
+			tmp->total_cost = (cost_b - 1) * -1;
+	}
 }

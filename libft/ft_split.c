@@ -78,6 +78,12 @@ char	**ft_split(const char *s, char c)
 
 	str = malloc(sizeof (char *) * (ft_word_split(s, c) + 1));
 	if (!str)
-		return (0);
-	return (ft_putword(s, c, str));
+		return (NULL);
+	str = ft_putword(s, c, str);
+	if (!str)
+	{
+		free(str);
+		return (NULL);
+	}
+	return (str);
 }
